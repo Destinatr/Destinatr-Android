@@ -36,4 +36,8 @@ class PlaceInfoFragment : Fragment() {
             onClickStartRoute(result)
         }
     }
+
+    fun setDuration(duration: String) {
+        (view?.findViewById(R.id.routeTimeText) as TextView).text = duration
+    }
 }

@@ -13,5 +13,4 @@ data class DirectionInfo (
         var distanceVal: Int = 0,
         var fromAddr: String = "",
         var toAddr: String = "",
-        var copyright: String = "",
         var directions: ArrayList<LatLng>? = null)

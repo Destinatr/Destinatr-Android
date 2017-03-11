@@ -240,6 +240,10 @@ class MapsActivity : FragmentActivity(),
     }
 
     fun onDirectionData(directions: DirectionInfo) {
+
+        println(directions)
+
+        placeInfoFragment.setDuration(directions.durationText)
         if(polyline != null) {
             polyline!!.remove()
         }
