@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" android:padding="@dimen/activity_vertical_margin">
+
+    <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/parking_meter_parkings"
+            android:text="Stationnements à parcomètre"
+            android:switchTextAppearance="?android:attr/switchStyle" android:layout_margin="5dp"/>
+    <Switch
+            android:text="Stationnements gratuits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/free_parkings" android:layout_margin="5dp"/>
+    <Switch
+            android:text="Stationnements à vignette"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/sticker_parkings" android:layout_margin="5dp"/>
+</LinearLayout>
