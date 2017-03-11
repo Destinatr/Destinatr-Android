@@ -28,10 +28,6 @@ import com.google.android.gms.location.places.ui.PlaceAutocomplete.getStatus
 import com.google.android.gms.location.places.PlaceBuffer
 
 
-
-
-
-
 class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: (result: Result) -> Unit) : Fragment() {
 
     var size: Int = 0
@@ -59,40 +55,42 @@ class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: (
 
         result.setResultCallback(
                 object : ResultCallback<AutocompletePredictionBuffer> {
-                   override fun onResult(result: AutocompletePredictionBuffer) {
-                       (view!!.findViewById(R.id.results_layout) as LinearLayout).removeAllViews()
+                    override fun onResult(result: AutocompletePredictionBuffer) {
+                        (view!!.findViewById(R.id.results_layout) as LinearLayout).removeAllViews()
 
-                       var params = emptyArray<String>()
+                        var params = emptyArray<String>()
 
-                       for (res in result) {
-                           params = params.plus(res.placeId!!)
-                           this@ResultListViewFragment.size++
-                       }
+                        for (res in result) {
+                            params = params.plus(res.placeId!!)
+                            this@ResultListViewFragment.size++
+                        }
 
-                       Places.GeoDataApi.getPlaceById(client, *params)
-                               .setResultCallback { places ->
-                                   if (places.status.isSuccess) {
-                                       var ft = getChildFragmentManager().beginTransaction()
+                        if (size > 0) {
+                            Places.GeoDataApi.getPlaceById(client, *params)
+                                    .setResultCallback { places ->
+                                        if (places.status.isSuccess) {
+                                            var ft = childFragmentManager.beginTransaction()
 
-                                       for (place in places) {
-                                           ft.add(R.id.results_layout, ResultFragment(
-                                                   Result(
-                                                           place.name.toString(),
-                                                           place.address.toString(),
-                                                           place.attributions?.toString(),
-                                                           place.latLng.latitude,
-                                                           place.latLng.longitude
-                                                   ),
-                                                   onClickRegister
+                                            for (place in places) {
+                                                ft.add(R.id.results_layout, ResultFragment(
+                                                        Result(
+                                                                place.name.toString(),
+                                                                place.address.toString(),
+                                                                place.attributions?.toString(),
+                                                                place.latLng.latitude,
+                                                                place.latLng.longitude
+                                                        ),
+                                                        onClickRegister
                                                 )
-                                           )
-                                       }
+                                                )
+                                            }
 
-                                       ft.commit()
+                                            ft.commit()
 
-                                   }
-                                   places.release()
-                               }
+                                        }
+                                        places.release()
+                                    }
+                        }
                     }
                 })
     }

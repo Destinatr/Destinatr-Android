@@ -24,15 +24,19 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdate
 import kotlinx.android.synthetic.main.activity_maps.*
 import android.R.string.cancel
+import android.content.Context
 import android.content.DialogInterface
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.google.android.gms.location.places.AutocompleteFilter
 import com.google.android.gms.location.places.Places
 import com.google.android.gms.maps.model.LatLngBounds
 import io.lassondehacks.destinatr.domain.Result
+import io.lassondehacks.destinatr.fragments.PlaceInfoFragment
 import io.lassondehacks.destinatr.fragments.ResultListViewFragment
 import io.lassondehacks.destinatr.utils.LocationUtilities
 
@@ -50,6 +54,8 @@ class MapsActivity : FragmentActivity(),
     var mLastLocation: Location? = null
 
     var resultsFragment: ResultListViewFragment? = null
+
+    var placeInfoFragment: PlaceInfoFragment = PlaceInfoFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,10 +76,14 @@ class MapsActivity : FragmentActivity(),
                     showParkingFiltersAlert()
                     return@setOnTouchListener true
                 }
-                resultsFragment?.view?.visibility = 0
             }
             return@setOnTouchListener false
         }
+
+        var ft = supportFragmentManager.beginTransaction()
+        ft.add(R.id.infoCardContainer, placeInfoFragment)
+        ft.commit()
+        infoCardContainer.visibility = View.INVISIBLE
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -131,20 +141,14 @@ class MapsActivity : FragmentActivity(),
         }
         var ft = supportFragmentManager.beginTransaction()
         resultsFragment = ResultListViewFragment(googleApiClient!!, {
-            r -> onResultSelection(r)
+            r ->
+            onResultSelection(r)
         })
         ft.add(R.id.result_container, resultsFragment)
         ft.commit()
+        result_container.visibility = View.INVISIBLE
 
-//        search_bar.addTextChangedListener { v, keyCode, event ->
-//            resultsFragment!!.update(
-//                    search_bar.text.toString(),
-//                    LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 10f),
-//                    AutocompleteFilter.Builder().setCountry("CA").build())
-//            return@setOnKeyListener false
-//        }
-
-        search_bar.addTextChangedListener(object :TextWatcher {
+        search_bar.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -152,16 +156,19 @@ class MapsActivity : FragmentActivity(),
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                resultsFragment!!.update(
-                        search_bar.text.toString(),
-                        LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 1f))
+                if (s!!.isNotEmpty()) {
+                    resultsFragment!!.update(
+                            search_bar.text.toString(),
+                            LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 1f))
+                    result_container.visibility = View.VISIBLE
+                }
             }
 
         });
 
 
         mMap?.setOnMapClickListener {
-            resultsFragment!!.view?.visibility = 4
+            result_container.visibility = View.INVISIBLE
         }
     }
 
@@ -201,7 +208,19 @@ class MapsActivity : FragmentActivity(),
     }
 
     fun onResultSelection(result: Result) {
-        println(result)
+        placeInfoFragment.setInfo(result, {})
+        infoCardContainer.visibility = View.VISIBLE
+        result_container.visibility = View.INVISIBLE
+        mMap!!.addMarker(MarkerOptions().position(LatLng(result.latitude!!, result.longitude!!)).title(result.title))
+
+        val destination = CameraUpdateFactory.newLatLng(LatLng(result.latitude!!, result.longitude!!))
+        mMap!!.moveCamera(destination)
+        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(13f))
+        var view = this.currentFocus
+        if (view != null) {
+            var imm = (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
 }
