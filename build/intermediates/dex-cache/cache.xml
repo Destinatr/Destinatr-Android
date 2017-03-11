@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.2.0_3885875a073d2cc45f2f25ae72a0b1919b7a30dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.2.0_778a5d48a20d2d3e1aea8ad1d5a0ce69f4c0a48c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brandonroberge/Library/Developer/Xamarin/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/pre-dexed/debug/support-annotations-25.2.0_d1d7da8a2f9d532e38b602cd7a558674ba383675.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.2.0_11581f8039dd4107410cdd85581d08ac6c84ca31.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.2.0_ac3e0c924102330b827b6eb5163da476aa4c377a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.2.0_ec6366912252739214a83daeb3e69f1c339f1ba2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.2.0_a0e994de941b830e5ff2564871327a685d44ee4b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.2.0_602c95b0192ecb47e4320365d16ab1c531f89406.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.2.0_a1edb486c8060fc074459b9271c1c62240b89863.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="/Users/brandonroberge/Projects/Destinatr/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.2.0_766fc8ffdfa4cc70bd141adb27f9db6106a8fda4.jar" />
+    </item>
+
+</items>
