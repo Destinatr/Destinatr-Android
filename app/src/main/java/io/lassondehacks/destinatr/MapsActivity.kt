@@ -34,6 +34,7 @@ import com.google.android.gms.location.places.Places
 import com.google.android.gms.maps.model.LatLngBounds
 import io.lassondehacks.destinatr.domain.Result
 import io.lassondehacks.destinatr.fragments.ResultListViewFragment
+import io.lassondehacks.destinatr.services.DirectionService
 import io.lassondehacks.destinatr.utils.LocationUtilities
 
 
@@ -136,14 +137,6 @@ class MapsActivity : FragmentActivity(),
         ft.add(R.id.result_container, resultsFragment)
         ft.commit()
 
-//        search_bar.addTextChangedListener { v, keyCode, event ->
-//            resultsFragment!!.update(
-//                    search_bar.text.toString(),
-//                    LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 10f),
-//                    AutocompleteFilter.Builder().setCountry("CA").build())
-//            return@setOnKeyListener false
-//        }
-
         search_bar.addTextChangedListener(object :TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
@@ -201,6 +194,7 @@ class MapsActivity : FragmentActivity(),
     }
 
     fun onResultSelection(result: Result) {
+        DirectionService.get(LatLng(result.latitude!!, result.longitude!!), LatLng(result.latitude!!, result.longitude!!))
         println(result)
     }
 
