@@ -6,6 +6,7 @@ package io.lassondehacks.destinatr.domain
 
 data class Result(
         var title: String?,
+        var info: String?,
         var address: String?,
         var distance_km: Int?
 )

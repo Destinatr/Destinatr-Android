@@ -24,7 +24,7 @@ class ResultFragment(val result: Result) : Fragment() {
 
         (view.findViewById(R.id.result_title) as TextView).text = result.title
 
-        (view.findViewById(R.id.distance_label) as TextView).text = "${result.distance_km}km from your position"
+        (view.findViewById(R.id.distance_label) as TextView).text = result.info
 
         (view.findViewById(R.id.address_label) as TextView).text = result.address
 

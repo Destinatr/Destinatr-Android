@@ -17,7 +17,7 @@ class LocationUtilities {
 
             val y2 = point.latitude - Math.toDegrees(radius / R)
 
-            return LatLngBounds(LatLng(x1, y1), LatLng(x2, y2))
+            return LatLngBounds(LatLng(y2, x1), LatLng(y1, x2))
         }
     }
 }

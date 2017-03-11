@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.PendingResult
 import com.google.android.gms.common.api.ResultCallback
@@ -37,24 +38,26 @@ class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: (
         return view
     }
 
-    fun update(query: String, bounds: LatLngBounds, filters: AutocompleteFilter) {
+    fun update(query: String, bounds: LatLngBounds) {
 
         var result = Places.GeoDataApi.getAutocompletePredictions(client, query,
-                bounds, filters)
+                bounds,
+                AutocompleteFilter.Builder().setCountry("CA").build())
 
         result.setResultCallback(
                 object : ResultCallback<AutocompletePredictionBuffer> {
                    override fun onResult(result: AutocompletePredictionBuffer) {
+                       (view!!.findViewById(R.id.results_layout) as LinearLayout).removeAllViews()
+
                        var ft = getChildFragmentManager().beginTransaction()
 
                        for (res in result) {
-                           ft.add(R.id.card_view, ResultFragment(Result(res.placeId, res.getPrimaryText(null).toString(), 10)))
+                           ft.add(R.id.results_layout, ResultFragment(Result(res.getFullText(null).toString(), res.getSecondaryText(null).toString(), res.getPrimaryText(null).toString(), 0)))
                        }
 
                        ft.commit()
                     }
                 })
-
     }
 
     fun resultCallback(buffer: AutocompletePredictionBuffer) {

@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks{
     override fun onConnected(p0: Bundle?) {
         var bounds = LatLngBounds(LatLng(-71.963, 45.421), LatLng(-71.96, 45.42))
         val typeFilter = AutocompleteFilter.Builder().setCountry("CA").build()
-        resultList?.update("C", bounds, typeFilter)
+        resultList?.update("C", bounds)
     }
 
     override fun onConnectionSuspended(p0: Int) {

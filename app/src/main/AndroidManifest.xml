@@ -27,6 +27,7 @@
 
         <activity
                 android:name=".MapsActivity"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan"
                 android:label="@string/title_activity_maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

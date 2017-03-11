@@ -27,6 +27,8 @@ import android.R.string.cancel
 import android.content.DialogInterface
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.text.Editable
+import android.text.TextWatcher
 import com.google.android.gms.location.places.AutocompleteFilter
 import com.google.android.gms.location.places.Places
 import com.google.android.gms.maps.model.LatLngBounds
@@ -70,14 +72,6 @@ class MapsActivity : FragmentActivity(),
                 resultsFragment?.view?.visibility = 0
             }
             return@setOnTouchListener false
-        }
-
-        search_bar.setOnKeyListener { v, keyCode, event ->
-            resultsFragment!!.update(
-                    search_bar.text.toString(),
-                    LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 5000f),
-                    AutocompleteFilter.Builder().setCountry("CA").build())
-            return@setOnKeyListener false
         }
     }
 
@@ -138,6 +132,30 @@ class MapsActivity : FragmentActivity(),
         resultsFragment = ResultListViewFragment(googleApiClient!!, {})
         ft.add(R.id.result_container, resultsFragment)
         ft.commit()
+
+//        search_bar.addTextChangedListener { v, keyCode, event ->
+//            resultsFragment!!.update(
+//                    search_bar.text.toString(),
+//                    LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 10f),
+//                    AutocompleteFilter.Builder().setCountry("CA").build())
+//            return@setOnKeyListener false
+//        }
+
+        search_bar.addTextChangedListener(object :TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                resultsFragment!!.update(
+                        search_bar.text.toString(),
+                        LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 1f))
+            }
+
+        });
+
 
         mMap?.setOnMapClickListener {
             resultsFragment!!.view?.visibility = 4
