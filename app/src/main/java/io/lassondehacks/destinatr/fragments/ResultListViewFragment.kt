@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.PendingResult
+import com.google.android.gms.common.api.ResultCallback
 import com.google.android.gms.location.places.AutocompleteFilter
 import com.google.android.gms.location.places.AutocompletePrediction
 import com.google.android.gms.location.places.Places
@@ -17,6 +18,10 @@ import javax.xml.datatype.DatatypeConstants.SECONDS
 import com.google.android.gms.location.places.AutocompletePredictionBuffer
 import io.lassondehacks.destinatr.domain.Result
 import java.util.concurrent.TimeUnit
+import com.google.android.gms.drive.DriveApi
+import com.google.android.gms.drive.Drive
+
+
 
 
 class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: () -> Unit) : Fragment() {
@@ -37,15 +42,22 @@ class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: (
         var result = Places.GeoDataApi.getAutocompletePredictions(client, query,
                 bounds, filters)
 
-        var ft = getChildFragmentManager().beginTransaction()
+        result.setResultCallback(
+                object : ResultCallback<AutocompletePredictionBuffer> {
+                   override fun onResult(result: AutocompletePredictionBuffer) {
+                       var ft = getChildFragmentManager().beginTransaction()
 
-        val autocompletePredictions = result.await(2, TimeUnit.SECONDS)
+                       for (res in result) {
+                           ft.add(R.id.card_view, ResultFragment(Result(res.placeId, res.getPrimaryText(null).toString(), 10)))
+                       }
 
-        for (res in autocompletePredictions) {
-            ft.add(R.id.card_view, ResultFragment(Result(res.placeId, res.getPrimaryText(null).toString(), 10)))
-        }
+                       ft.commit()
+                    }
+                })
 
-        ft.commit()
+    }
+
+    fun resultCallback(buffer: AutocompletePredictionBuffer) {
 
     }
 

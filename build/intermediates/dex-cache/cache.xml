@@ -3,678 +3,1335 @@
 
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/.gradle/caches/modules-2/files-2.1/com.github.kittinunf.fuel/fuel/1.4.0/fdc3c6ff80b0d6e244250e201801f76e979049bd/fuel-1.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="fdc3c6ff80b0d6e244250e201801f76e979049bd">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/fuel-1.4.0_3c56860e0702c9784c33665c5fb57da9e7cc26e6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="a9493f008850469ed3fab9b28658919562882aed">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-10.2.0_b785e64687d522ff6ac15019c46bdb68ae533a01/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.2.0_a9c2cc114dcd897f91bd79176846c1d532f1ea25/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="e7157a9577c983651d6c6ee313813424fe2d8ab6">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-10.2.0_27338438861a423bf469082606d12a0588083d47/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.2.0_a4c1ef2ed5c8f37503765933192d5e94deda4dc4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="48532a016bb0dfbe7970c147ce784598a515406b">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.2.0_9de0fc992291a266cf84b36e38679508f825a2c8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="ea03bbfaed89818f233ee9918fac493f2b63895a">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-10.2.0_8c6f8c20a90c23d679855e5b28128a4c85f29f1f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.2.0_03e7cc2a91083be06d9ea11a7f3305617282e10f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="8fd2e9eadc9d214966ee7f60d6c5a17a335d7533">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-framework-10.2.0_6633a57a7e9692b3594c3b885014aae8709bf074/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/libs/internal_impl-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_f56cf0694d8b2dee4b3db5f615701049c0269c2c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="4e01b82d664e1a8253b2b9658e74b5da35c8771d">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-10.2.0_d9cd57af0a2a2e0bea0d84f3a550d66771ac602f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="8e1d31656bc9f1889283836e025e6cb703acd38a">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-10.2.0_00c31340663c6d57c95be00d141e9a94d6d72135/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="ca82d5800780b1d53f0f9ab43678d8634a34cddc">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-10.2.0_c5b9f49d7cba6253b4b5f3af0650990378772722/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="421a5cebe9ff187c98075c59786e9464c5c67d36">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-10.2.0_54ea466bc72d01089c1a32d2ef7062059729e22f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="0f58195bee8a08f35e7d4ee7fd4b0479e570e172">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-10.2.0_9258c11ded424fad614a220f9b7ed871ec891e73/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="aa23e4589287adb431ef59d6c78af79ab8885682">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-10.2.0_556e2a7cca19499234e6710704524b89749abec5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="857ce7350acf811749c8fd0254d3d39b02aa71f5">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-10.2.0_168aff4f67c0cf8f1da9631dd86cd2069c045ab6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="3aaf1e7b5fe9f4d3ff22c4edc0ead631f7389d30">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-10.2.0_5ca3fa2d292f6b0d807cac8eb5991a8c627d5fbf/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.0/96a07041a11a09cf578892932d7511e1e11e3b6c/kotlin-stdlib-1.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="96a07041a11a09cf578892932d7511e1e11e3b6c">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-stdlib-1.1.0_8cb19ca4b48b256f1210d694b6e9f759a11a52c1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="444f9de23145e8caba7bf1c1772acad142ea6013">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-10.2.0_d4e9915456e6116b1617a943a5495b91344b17d4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="d08bb32b88df3dbcbe1d498c3c57f020b8c521ec">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-10.2.0_7f3627b285f6354799376fa66775e4afdd1a0456/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.2.0_6f092b4c144e5f022eb277c256d3e0c2d8dff69e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="4ef2d91da513c4d7e773ae438fe04d0e4c135957">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-10.2.0_d762ffea920f69834ed679618bdf72eccb553b65/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="db4aca1c1ec60f2c098d3b6c91cedfb7838f83ed">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-10.2.0_8a7a9944ef353fc24d3eaf787fd70fb41c30272a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.2.0_8c6fa41bd0cec97d7d7fd9ddad37c6b18c68ac42/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Library/Developer/Xamarin/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.2.0_d1d7da8a2f9d532e38b602cd7a558674ba383675/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="bc9e19b33fc12df5ddabd3632ce7ce0fdc1e7f7f">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_980c593c086980f7f66a888926fa8adccaf72a7a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.github.kittinunf.fuel/fuel-android/1.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="132cfc9ef1beff2d10889e0a6f4d420a00f7ed56">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.kittinunf.fuel-fuel-android-1.4.0_d17b0271dcc0ae753890ead52b5848d9a95db22d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="90270132a5f1a33584f453c571257dd35e728201">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-10.2.0_67cb186bf4d6f7e8eb14d617c798a8c5460ecd33/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre7/1.1.0/ef03cfed144ff47eed2cab1f7be4381bc18a6237/kotlin-stdlib-jre7-1.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="ef03cfed144ff47eed2cab1f7be4381bc18a6237">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-stdlib-jre7-1.1.0_ae8d0dd4f20f2c9457193dbe31ba14c0374c6ccb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="db48dfabe8ecc46681ceca418d6bd61a5339f818">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-10.2.0_88031ca1c6613fca2786bf110ea3aece787c23a1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="75575883f0348fc5d2be85f23bd10b050095cf17">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-messaging-10.2.0_f2ed482851ecd44328c92c8275ea214245005815/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="a3f7595ca32e614b454ceb7b7e241bb037a28e86">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-10.2.0_a7ac1b7517bcf1269955dcba1a93df63fd4e7dc1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="646b2c48e147b943f0a39842457fdc66d501e4b6">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-10.2.0_c828ac4153cd7f7d02f2bba3cb91b60af0339f0e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="3d13e510077b35fe8e49930a627dd849ad5da0dc">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.2.0_c419682b10ac0e94e70bb1c8817be1e303319c39/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.5/b423532b5a3c949cbb799468f83bf566032fe98d/rxjava-1.2.5.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="b423532b5a3c949cbb799468f83bf566032fe98d">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/rxjava-1.2.5_2b8f33a9bafb30f4f13b62788394fc28139db9dd/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="74c5a91d6510ad42410e8a047d90d2ea6721a0e0">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-config-10.2.0_5133bb5b803e2fa63a1f71f39d2ca912de30725f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="94fca868854457ede6df15c902938468c71d579e">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.2.0_782f793fe2e2b9b4f4072ea1a4cd5aa952596a46/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.2.0_39c679acef602925b08bf1e38451feeccbe9b4f6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-appindexing/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="1fbf3733f36fea63e70373212796e70f9079981f">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-appindexing-10.2.0_54ad0f10cacba3548c8d5832c03d02cdf6e8dd93/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.2.0_9a0d3be7e3626cd70d467a907ec241538ae92dc8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="b831d3902674d096189451d46fce219e2c2904b7">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-10.2.0_d2f4c11408467135fa5cc44e6d515063ece02033/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="ddb7fed808f4331174b59428ccfc46b3696c9812">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-10.2.0_8c8bbfaef346f911da9d522b99edc44a35334d45/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-instantapps/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="423fb69e69759d8b726fa4a4fb6a1ea9fc86d1cd">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-instantapps-10.2.0_712194dd0439ebb1730b1ac7a425ae63888776f5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/.gradle/caches/modules-2/files-2.1/com.github.kittinunf.result/result/1.0.5/4fbdfc52e8d54d59acf831dfba6940a35c9667c8/result-1.0.5.jar"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/com.github.kittinunf.result/result/1.0.5/4fbdfc52e8d54d59acf831dfba6940a35c9667c8/result-1.0.5.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="4fbdfc52e8d54d59acf831dfba6940a35c9667c8">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/result-1.0.5_86fc42bbb00775c00e2da2b0e55ef7a11fa058f0/classes.dex" />
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/result-1.0.5_c7b07ddccdf6452b6a1ec12eff3510dc206db5cd/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.2.0/jars/classes.jar"
-        jumboMode="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.1"
-        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.2.0_e4ce27779d6e2eee78c2e42b4d2c03b0fff75fe0/classes.dex" />
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-24.0.0_a360f4b5c63ac7e31e1a55f9d7644471f4cb4268/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
-        jumboMode="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.1"
         sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.2.0_beca23463070d4d7c9c81ed20e0f7b989699069a/classes.dex" />
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.2.0_d2b8d8673631f56067a8ccf71f379c1ec7d15eea/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="919f0dfe192fb4e063e7dacadee7f8bb9a2672a9">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/annotations-13.0_45218d8a6eb2bc4f62c1611ad77df8f56d0beab7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="1bab75be1918fc9871be4da7afe38d7e4d308303">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-10.2.0_c27789b637d7a45aa48448cadf6484cb50edc045/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="9d1d0e1270310e34e2d65afda2bc18605c14cd46">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-10.2.0_eb3e1d9bf648c2850a39276bf048b276317d3365/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="1df6d719c4e264d66bb98baa5cb637495b8cca66">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-10.2.0_335c78cde03aeb4b1bd305e4354de0b0be5535a4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="a61e7010aa7be5da53cd1bc5279630510c9a4912">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.2.0_edbeaec6f460ea11ddae63088affa51b812eb14e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.2.0_e35ca11e87d288a51fe8133b50b56b1272b998af/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="6da05b7498da036b5b37c3beb861cd2060929dcd">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-10.2.0_45aebe693dfcf16ca133422e88440aa424c6fc2c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.2.0_0ac63f9adc15c321f9d0ac6dcc6e89edd18c5306/classes.dex" />
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.2.0_ce5c3f7b5aec466cc09dcfb5a4353f549442151a/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Users/richerarc/Library/Android/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.2.0_f2f9bb844ceeffa7b2ecd6431c30086213fadb24/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/10.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="0971c8da58f7ea277fc5970d543f5b7ad6e8e230">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_172590ced3dc7ba5c69333ce46ce0a6bf43646ab/classes.dex" />
+        sha1="857ce7350acf811749c8fd0254d3d39b02aa71f5">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-10.2.0_5594e3a357d60af8663dce7a4cfe6c90082eb832/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/10.2.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="654b294d429b56fd18392f2b68ad79954f431f8e">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-places-10.2.0_1a10128a93c7313898d90f0f3ed70e5f384657ec/classes.dex" />
+        sha1="3d13e510077b35fe8e49930a627dd849ad5da0dc">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.2.0_05d7659f2f7d273a1f185ea824b2aa679386d8fa/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ca82d5800780b1d53f0f9ab43678d8634a34cddc">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-10.2.0_00bd56aef73a3309300057f894cfd8468d0a2b3d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.2.0_1953ec2dc671cc41a3102112556cd614605f3989/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.2.0_d093593156e755c0afd44d0bf56d288f75ea6139/classes.dex" />
+        sha1="48532a016bb0dfbe7970c147ce784598a515406b">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.2.0_9c2882c85c3404baefeebd9ba6c2cd8c3942fc24/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-v4-impl/10.2.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/10.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="8438c64f9eb581429dc592f7c9b3156a3d071653">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-v4-impl-10.2.0_5848e5cecae3ab9e7c972e83a8e0aacd25b41e4d/classes.dex" />
+        sha1="1bab75be1918fc9871be4da7afe38d7e4d308303">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-10.2.0_86858f85f8250e6c281d9f0d33b3298d798ede16/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="3f4483afd050f3be12db7838422309446a45daa1">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-clearcut-10.2.0_9c4542b158ff607a48aab4ba97d89acafe36edb8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/transition/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="e51c2f662bb72419632af5192553c37e33890a99">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.2.0_49d8f0f06392844d9d0fcdb19abd6d4f00e06641/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="3d6951cb416ebf8c66a32b9480808ca247b68344">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.2.0_b34e86761d611a14aff8ee3512796b6796066cbb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.2.0_82ff7b3aef17fbd0aabd7a943c664290dea63383/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="7d14fe9bd2283b2eb7fcab08458aa0357917e138">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-10.2.0_19413b6d4957e51a0e1685477ece20d15387ec59/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="101393e975eaf36e3ff40b277ee9a019e077afef">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-10.2.0_e962c61911dfe8743542b1717df68a14daf04dbf/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="68485f21eeb5d6c9ed82c445d520b9fc81c87108">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-10.2.0_6466b005e77d06810ca756cca8a9ddf126593e9a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-24.0.0_b1cbf6897c75568c0608fa4e47434b2bc35ee396/classes.dex" />
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-24.0.0_e14f40287076216abb5b3eb67a9383fd89b4faf5/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-awareness/10.2.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="45e0953544711e0b5a2d227732e88cccb82793bc">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-awareness-10.2.0_20d6a97845dadcbef9fb2bde90162c96e1eba65c/classes.dex" />
+        sha1="8fd2e9eadc9d214966ee7f60d6c5a17a335d7533">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-framework-10.2.0_2c7eb507309e76299573e7fa6246b0b00727157d/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.2.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="0e301f24b283f14b564f660c9abe863af6be5896">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.2.0_36fb0ac76e8dc36b3511abe50ae43e75cf82cae5/classes.dex" />
+        sha1="ea03bbfaed89818f233ee9918fac493f2b63895a">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-10.2.0_369ec87fb8ea21674a27d3c52024305028ce9628/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/design/25.2.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.github.kittinunf.fuel/fuel-android/1.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="132cfc9ef1beff2d10889e0a6f4d420a00f7ed56">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.kittinunf.fuel-fuel-android-1.4.0_3fd82053a5490faca07af428e844249effaaa8ed/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.2.0_55eb43462e50b3b80519e4cf3911b48a084e94c5/classes.dex" />
+        sha1="aa23e4589287adb431ef59d6c78af79ab8885682">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-10.2.0_fca5a2ae1968d3688346d033f8c045de97fcbe68/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/.gradle/caches/modules-2/files-2.1/com.github.kittinunf.fuel/fuel-rxjava/1.4.0/59810892c8fbf600fa7e8b28e29c789376badfc6/fuel-rxjava-1.4.0.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="59810892c8fbf600fa7e8b28e29c789376badfc6">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/fuel-rxjava-1.4.0_33f89662ae19758ec5bd83cfbb441f962403e863/classes.dex" />
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.2.0_9d45aa34e9925d2fd77e750e24e6fa2a04457686/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b831d3902674d096189451d46fce219e2c2904b7">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-10.2.0_e54a59e901db20e1aaeb2425899a07cfeff6daac/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-24.0.0_dbafa71f2d3df5adf4f7b3289a1d64af6fab6032/classes.dex" />
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-24.0.0_a360f4b5c63ac7e31e1a55f9d7644471f4cb4268/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/10.2.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.2.0_1953ec2dc671cc41a3102112556cd614605f3989/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="48532a016bb0dfbe7970c147ce784598a515406b">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.2.0_9c2882c85c3404baefeebd9ba6c2cd8c3942fc24/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3d13e510077b35fe8e49930a627dd849ad5da0dc">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.2.0_05d7659f2f7d273a1f185ea824b2aa679386d8fa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/com.github.kittinunf.result/result/1.0.5/4fbdfc52e8d54d59acf831dfba6940a35c9667c8/result-1.0.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="4fbdfc52e8d54d59acf831dfba6940a35c9667c8">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/result-1.0.5_c7b07ddccdf6452b6a1ec12eff3510dc206db5cd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.github.kittinunf.fuel/fuel-android/1.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="132cfc9ef1beff2d10889e0a6f4d420a00f7ed56">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.kittinunf.fuel-fuel-android-1.4.0_3fd82053a5490faca07af428e844249effaaa8ed/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.2.0_ce5c3f7b5aec466cc09dcfb5a4353f549442151a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e7157a9577c983651d6c6ee313813424fe2d8ab6">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-10.2.0_9cf139d272ff5344195a442ceccd34d7cb6d80dd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/com.github.kittinunf.fuel/fuel/1.4.0/fdc3c6ff80b0d6e244250e201801f76e979049bd/fuel-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="fdc3c6ff80b0d6e244250e201801f76e979049bd">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/fuel-1.4.0_e3b97668035a91f6bbb17307d2323ff99d828c8f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ca82d5800780b1d53f0f9ab43678d8634a34cddc">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-10.2.0_00bd56aef73a3309300057f894cfd8468d0a2b3d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0f58195bee8a08f35e7d4ee7fd4b0479e570e172">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-10.2.0_54789e067209f49ce937ec38196d01886fc48b23/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0f58195bee8a08f35e7d4ee7fd4b0479e570e172">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-10.2.0_54789e067209f49ce937ec38196d01886fc48b23/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.2.0_9d45aa34e9925d2fd77e750e24e6fa2a04457686/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-24.0.0_e14f40287076216abb5b3eb67a9383fd89b4faf5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-awareness/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="45e0953544711e0b5a2d227732e88cccb82793bc">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-awareness-10.2.0_0280d8f2a37cb79a43cca66758c525425269ced6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.2.0_98ee6779a46fecf1144e17931a6031defd340355/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0e301f24b283f14b564f660c9abe863af6be5896">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.2.0_21fa4fc84ac066c44811397f333b97a505ab076b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="db4aca1c1ec60f2c098d3b6c91cedfb7838f83ed">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-10.2.0_afbb1b483734e38bcde36b83ea1b1148cb089292/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_ace9e6828eaa23ab62a68ca34782a182febc118d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="db48dfabe8ecc46681ceca418d6bd61a5339f818">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-10.2.0_6eef43f8096d14a1aaca6b397dcf81642200e184/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="75575883f0348fc5d2be85f23bd10b050095cf17">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-messaging-10.2.0_61523acec079163188a0ef41beea2564bdb0fa29/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.2.0_0145e3de94d6792afafac402c2ab39a57cc9a288/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.2.0_bdbfce3e8eb2edf1ff947ba15fed44c33af00fa1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a3f7595ca32e614b454ceb7b7e241bb037a28e86">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-10.2.0_e96dfaeafb5580d9a48566c707c085202a2b72d8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d08bb32b88df3dbcbe1d498c3c57f020b8c521ec">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-10.2.0_6688ea4db37ebede5732e6ec4d87aac7573520e9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="db48dfabe8ecc46681ceca418d6bd61a5339f818">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-10.2.0_6eef43f8096d14a1aaca6b397dcf81642200e184/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7d14fe9bd2283b2eb7fcab08458aa0357917e138">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-10.2.0_b0b94744393d68ecc7e77f63e62c05eb3ede1afa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3aaf1e7b5fe9f4d3ff22c4edc0ead631f7389d30">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-10.2.0_47a9aad508725fb25b9120c4c51fe973cf365c3c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="74c5a91d6510ad42410e8a047d90d2ea6721a0e0">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-config-10.2.0_484ea923726eb264b253d3fe647735a63fde8147/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ab0c7fe28f9506302eb39adf1ebf5858732e18ec">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-10.2.0_3c402f6af25875f95e05464f74eec7ceedf44447/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="db4aca1c1ec60f2c098d3b6c91cedfb7838f83ed">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-10.2.0_afbb1b483734e38bcde36b83ea1b1148cb089292/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="8fd2e9eadc9d214966ee7f60d6c5a17a335d7533">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-framework-10.2.0_2c7eb507309e76299573e7fa6246b0b00727157d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7d14fe9bd2283b2eb7fcab08458aa0357917e138">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-10.2.0_b0b94744393d68ecc7e77f63e62c05eb3ede1afa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a3f7595ca32e614b454ceb7b7e241bb037a28e86">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-10.2.0_e96dfaeafb5580d9a48566c707c085202a2b72d8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="421a5cebe9ff187c98075c59786e9464c5c67d36">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-10.2.0_4dd9244a28dc5fe11338ac5cf9229a92a4e92688/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="cc65ebe48794e3b514a3afd823b14ab0e8d083b8">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b09ab6124c630ebf7f19eba2bb94c75f28192605/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="101393e975eaf36e3ff40b277ee9a019e077afef">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-10.2.0_d0458f1fbbb6da47189609a0ccacd6ed160d3818/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.2.0_0145e3de94d6792afafac402c2ab39a57cc9a288/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="90270132a5f1a33584f453c571257dd35e728201">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-10.2.0_754c643f4c287094a0f6b00676f62e2510045db6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.2.0_a7331383f06abcd5135f3eb987df27c12ed90eb6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="8e1d31656bc9f1889283836e025e6cb703acd38a">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-10.2.0_b4278941c23e50818f5d49a199d4e0c70ad9ff91/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b831d3902674d096189451d46fce219e2c2904b7">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-10.2.0_e54a59e901db20e1aaeb2425899a07cfeff6daac/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1df6d719c4e264d66bb98baa5cb637495b8cca66">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-10.2.0_cf67fb054645069bf7cf2f7f972d7c4bcb9ddca3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/10.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="ab0c7fe28f9506302eb39adf1ebf5858732e18ec">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-10.2.0_c8574ea0986d09fd7df0d689230a6ccf3c519256/classes.dex" />
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-10.2.0_3c402f6af25875f95e05464f74eec7ceedf44447/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.2.0_bdbfce3e8eb2edf1ff947ba15fed44c33af00fa1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.2.0_7f9b6f46da3c5b52a5bd4f86d64464dd55c16342/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/design/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.2.0_7b4bb75234d6ff02d882341c5a2224f6af8f0bba/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.2.0_07cb5053761dea8d8e946c8aa26a23167d13c410/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3d6951cb416ebf8c66a32b9480808ca247b68344">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.2.0_908bf9cdc85e9d770bd163e1dbd86df51773aa33/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="646b2c48e147b943f0a39842457fdc66d501e4b6">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-10.2.0_1dbe51adeeacbcc476717ee2e1f7f3489f4d57af/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.2.0_2d70c19cd31358b53c662b23e70672b585620e4a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="101393e975eaf36e3ff40b277ee9a019e077afef">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-10.2.0_d0458f1fbbb6da47189609a0ccacd6ed160d3818/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="421a5cebe9ff187c98075c59786e9464c5c67d36">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-10.2.0_4dd9244a28dc5fe11338ac5cf9229a92a4e92688/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.2.0_a7331383f06abcd5135f3eb987df27c12ed90eb6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="68485f21eeb5d6c9ed82c445d520b9fc81c87108">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-10.2.0_7084f9def31df1556e6c9a5cdbfff7f275c43902/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a9493f008850469ed3fab9b28658919562882aed">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-10.2.0_95d0007ce75a47a58b3a9a8dbbe9cc4ddb6feec1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="4ef2d91da513c4d7e773ae438fe04d0e4c135957">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-10.2.0_1104b99d3ae32546660ea4b3fb8b5d467c9d2000/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.0/96a07041a11a09cf578892932d7511e1e11e3b6c/kotlin-stdlib-1.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="96a07041a11a09cf578892932d7511e1e11e3b6c">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-stdlib-1.1.0_655e5c8030663a5c4c5b49c73bf360766f9a1951/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="4e01b82d664e1a8253b2b9658e74b5da35c8771d">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-10.2.0_d359115c852ffd31b0c8f4d17f3974c8ea7519ab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="8e1d31656bc9f1889283836e025e6cb703acd38a">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-10.2.0_b4278941c23e50818f5d49a199d4e0c70ad9ff91/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="2744003ecb8773caccb799c3e5bfd9b4abaddc09">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_a941f6932a3328a07d8c033377ee1b3887b990d2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/com.github.kittinunf.fuel/fuel-rxjava/1.4.0/59810892c8fbf600fa7e8b28e29c789376badfc6/fuel-rxjava-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="59810892c8fbf600fa7e8b28e29c789376badfc6">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/fuel-rxjava-1.4.0_56d812b84bbf4bbd2f331b9f0e1ec208ea621e66/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1df6d719c4e264d66bb98baa5cb637495b8cca66">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-10.2.0_cf67fb054645069bf7cf2f7f972d7c4bcb9ddca3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-v4-impl/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="8438c64f9eb581429dc592f7c9b3156a3d071653">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-v4-impl-10.2.0_3a7cec0ceafd87fb2bc30f39e4086bd7de30dd3c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="444f9de23145e8caba7bf1c1772acad142ea6013">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-10.2.0_23dba309151078d2111c492e575acc5ddb61baa4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="90270132a5f1a33584f453c571257dd35e728201">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-10.2.0_754c643f4c287094a0f6b00676f62e2510045db6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3d6951cb416ebf8c66a32b9480808ca247b68344">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.2.0_908bf9cdc85e9d770bd163e1dbd86df51773aa33/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.2.0_ce1b13279bde03333e861819574cdd96872510a3/classes.dex" />
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.2.0_98109d93266038235eb5f584ad51888b383c199b/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.2.0/jars/classes.jar"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="646b2c48e147b943f0a39842457fdc66d501e4b6">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-10.2.0_1dbe51adeeacbcc476717ee2e1f7f3489f4d57af/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="30a4938ea5235ccf532b3e9f04200e68547e36ad">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-25.2.0_7990b68d96efc7c8162b638c8aa7e3d61acc57b0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ddb7fed808f4331174b59428ccfc46b3696c9812">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-10.2.0_d4fb15d1dc13d394c045c11b3101a4a7f8316313/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0e301f24b283f14b564f660c9abe863af6be5896">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.2.0_21fa4fc84ac066c44811397f333b97a505ab076b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.2.0_07cb5053761dea8d8e946c8aa26a23167d13c410/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="9d1d0e1270310e34e2d65afda2bc18605c14cd46">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-10.2.0_ec46fb99819a792582913f19f11f3c4653b07d96/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_ace9e6828eaa23ab62a68ca34782a182febc118d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-instantapps/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="423fb69e69759d8b726fa4a4fb6a1ea9fc86d1cd">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-instantapps-10.2.0_ed9b7394dac48d5a72461a21c41feddec19e2d37/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.2.0_9dd31044b3e2002dabe5b2c4f26c2163589a57fe/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.0/96a07041a11a09cf578892932d7511e1e11e3b6c/kotlin-stdlib-1.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="96a07041a11a09cf578892932d7511e1e11e3b6c">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-stdlib-1.1.0_655e5c8030663a5c4c5b49c73bf360766f9a1951/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.5/b423532b5a3c949cbb799468f83bf566032fe98d/rxjava-1.2.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b423532b5a3c949cbb799468f83bf566032fe98d">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/rxjava-1.2.5_26e21b7c569b0c6dda0611bf7ed88342c6e24fbd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="75575883f0348fc5d2be85f23bd10b050095cf17">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-messaging-10.2.0_61523acec079163188a0ef41beea2564bdb0fa29/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="4ef2d91da513c4d7e773ae438fe04d0e4c135957">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-10.2.0_1104b99d3ae32546660ea4b3fb8b5d467c9d2000/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d08bb32b88df3dbcbe1d498c3c57f020b8c521ec">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-10.2.0_6688ea4db37ebede5732e6ec4d87aac7573520e9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="68485f21eeb5d6c9ed82c445d520b9fc81c87108">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-10.2.0_7084f9def31df1556e6c9a5cdbfff7f275c43902/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ddb7fed808f4331174b59428ccfc46b3696c9812">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-10.2.0_d4fb15d1dc13d394c045c11b3101a4a7f8316313/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a9493f008850469ed3fab9b28658919562882aed">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-10.2.0_95d0007ce75a47a58b3a9a8dbbe9cc4ddb6feec1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-v4-impl/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="8438c64f9eb581429dc592f7c9b3156a3d071653">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-v4-impl-10.2.0_3a7cec0ceafd87fb2bc30f39e4086bd7de30dd3c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre7/1.1.0/ef03cfed144ff47eed2cab1f7be4381bc18a6237/kotlin-stdlib-jre7-1.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ef03cfed144ff47eed2cab1f7be4381bc18a6237">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-stdlib-jre7-1.1.0_3964a6a85f6dfbb7330c256d55f97a6be9f43b7c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/design/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.2.0_7b4bb75234d6ff02d882341c5a2224f6af8f0bba/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.2.0_7f9b6f46da3c5b52a5bd4f86d64464dd55c16342/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/com.github.kittinunf.fuel/fuel-rxjava/1.4.0/59810892c8fbf600fa7e8b28e29c789376badfc6/fuel-rxjava-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="59810892c8fbf600fa7e8b28e29c789376badfc6">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/fuel-rxjava-1.4.0_56d812b84bbf4bbd2f331b9f0e1ec208ea621e66/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3aaf1e7b5fe9f4d3ff22c4edc0ead631f7389d30">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-10.2.0_47a9aad508725fb25b9120c4c51fe973cf365c3c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="4e01b82d664e1a8253b2b9658e74b5da35c8771d">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-10.2.0_d359115c852ffd31b0c8f4d17f3974c8ea7519ab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="74c5a91d6510ad42410e8a047d90d2ea6721a0e0">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-config-10.2.0_484ea923726eb264b253d3fe647735a63fde8147/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="30a4938ea5235ccf532b3e9f04200e68547e36ad">
-        <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-25.2.0_dcdcc6600d7295428d10ed5f635bf795ff735117/classes.dex" />
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-25.2.0_7990b68d96efc7c8162b638c8aa7e3d61acc57b0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-instantapps/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="423fb69e69759d8b726fa4a4fb6a1ea9fc86d1cd">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-instantapps-10.2.0_ed9b7394dac48d5a72461a21c41feddec19e2d37/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e7157a9577c983651d6c6ee313813424fe2d8ab6">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-10.2.0_9cf139d272ff5344195a442ceccd34d7cb6d80dd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.2.0_9dd31044b3e2002dabe5b2c4f26c2163589a57fe/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a61e7010aa7be5da53cd1bc5279630510c9a4912">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.2.0_b97b95f8f3d26b185dbfc1eceaad1050ec2152df/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/com.github.kittinunf.fuel/fuel/1.4.0/fdc3c6ff80b0d6e244250e201801f76e979049bd/fuel-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="fdc3c6ff80b0d6e244250e201801f76e979049bd">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/fuel-1.4.0_e3b97668035a91f6bbb17307d2323ff99d828c8f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3f4483afd050f3be12db7838422309446a45daa1">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-clearcut-10.2.0_6e363b2b6d015616ff0b4910f4b1ec415f167873/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.2.0_98109d93266038235eb5f584ad51888b383c199b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="919f0dfe192fb4e063e7dacadee7f8bb9a2672a9">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/annotations-13.0_e7b7a4089190bf71eac3ca7adb949148de232419/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="654b294d429b56fd18392f2b68ad79954f431f8e">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-places-10.2.0_701c61e3607c831d5d90648d68d0971c750f7cb9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.5/b423532b5a3c949cbb799468f83bf566032fe98d/rxjava-1.2.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b423532b5a3c949cbb799468f83bf566032fe98d">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/rxjava-1.2.5_26e21b7c569b0c6dda0611bf7ed88342c6e24fbd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-awareness/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="45e0953544711e0b5a2d227732e88cccb82793bc">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-awareness-10.2.0_0280d8f2a37cb79a43cca66758c525425269ced6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6da05b7498da036b5b37c3beb861cd2060929dcd">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-10.2.0_ec8c3bdd9c6f78b4b7ce78ef6b82de3d33f93b94/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-appindexing/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1fbf3733f36fea63e70373212796e70f9079981f">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-appindexing-10.2.0_f93a6454ad03045d317e52c4cf877e8f70142d75/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="9d1d0e1270310e34e2d65afda2bc18605c14cd46">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-10.2.0_ec46fb99819a792582913f19f11f3c4653b07d96/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/transition/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.2.0_e20fbcce1b31c676caba5d7641767e45be941631/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.2.0_45d9ccf615c89d23861f4c7e80bec592521247a5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="94fca868854457ede6df15c902938468c71d579e">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.2.0_17c8cf5b5c05033134d6d9ba84ad0f35c9296489/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre7/1.1.0/ef03cfed144ff47eed2cab1f7be4381bc18a6237/kotlin-stdlib-jre7-1.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ef03cfed144ff47eed2cab1f7be4381bc18a6237">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-stdlib-jre7-1.1.0_3964a6a85f6dfbb7330c256d55f97a6be9f43b7c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.2.0_98ee6779a46fecf1144e17931a6031defd340355/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="919f0dfe192fb4e063e7dacadee7f8bb9a2672a9">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/annotations-13.0_e7b7a4089190bf71eac3ca7adb949148de232419/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a61e7010aa7be5da53cd1bc5279630510c9a4912">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.2.0_b97b95f8f3d26b185dbfc1eceaad1050ec2152df/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.2.0_d2b8d8673631f56067a8ccf71f379c1ec7d15eea/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3f4483afd050f3be12db7838422309446a45daa1">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-clearcut-10.2.0_6e363b2b6d015616ff0b4910f4b1ec415f167873/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/Library/Android/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.2.0_f2f9bb844ceeffa7b2ecd6431c30086213fadb24/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="857ce7350acf811749c8fd0254d3d39b02aa71f5">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-10.2.0_5594e3a357d60af8663dce7a4cfe6c90082eb832/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="654b294d429b56fd18392f2b68ad79954f431f8e">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-places-10.2.0_701c61e3607c831d5d90648d68d0971c750f7cb9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="aa23e4589287adb431ef59d6c78af79ab8885682">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-10.2.0_fca5a2ae1968d3688346d033f8c045de97fcbe68/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1bab75be1918fc9871be4da7afe38d7e4d308303">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-10.2.0_86858f85f8250e6c281d9f0d33b3298d798ede16/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6da05b7498da036b5b37c3beb861cd2060929dcd">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-10.2.0_ec8c3bdd9c6f78b4b7ce78ef6b82de3d33f93b94/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ea03bbfaed89818f233ee9918fac493f2b63895a">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-10.2.0_369ec87fb8ea21674a27d3c52024305028ce9628/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.2.0_2d70c19cd31358b53c662b23e70672b585620e4a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-appindexing/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1fbf3733f36fea63e70373212796e70f9079981f">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-appindexing-10.2.0_f93a6454ad03045d317e52c4cf877e8f70142d75/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/transition/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.2.0_e20fbcce1b31c676caba5d7641767e45be941631/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="94fca868854457ede6df15c902938468c71d579e">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.2.0_17c8cf5b5c05033134d6d9ba84ad0f35c9296489/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="444f9de23145e8caba7bf1c1772acad142ea6013">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-10.2.0_23dba309151078d2111c492e575acc5ddb61baa4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="/Users/richerarc/git/Destinatr/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.2.0_45d9ccf615c89d23861f4c7e80bec592521247a5/classes.dex" />
     </item>
 
 </items>
