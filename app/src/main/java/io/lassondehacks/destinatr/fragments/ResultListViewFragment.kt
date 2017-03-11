@@ -48,6 +48,10 @@ class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: (
     fun update(query: String, bounds: LatLngBounds) {
 
         this.size = 0
+        if(query.isEmpty()){
+            (view!!.findViewById(R.id.results_layout) as LinearLayout).removeAllViews()
+            return
+        }
 
         var result = Places.GeoDataApi.getAutocompletePredictions(client, query,
                 bounds,

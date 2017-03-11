@@ -9,10 +9,11 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import android.Manifest
 import android.app.AlertDialog
 import android.location.Location
-import android.location.LocationListener
 import android.view.MotionEvent
 import android.widget.Button
 import android.widget.Toast
@@ -24,12 +25,19 @@ import kotlinx.android.synthetic.main.activity_maps.*
 import android.R.string.cancel
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
+import android.content.SharedPreferences
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.renderscript.RenderScript
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Switch
+import com.google.android.gms.location.LocationListener
+import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.places.AutocompleteFilter
 import com.google.android.gms.location.places.Places
 import com.google.android.gms.maps.model.*
@@ -37,6 +45,7 @@ import io.lassondehacks.destinatr.domain.DirectionInfo
 import io.lassondehacks.destinatr.domain.Result
 import io.lassondehacks.destinatr.fragments.PlaceInfoFragment
 import io.lassondehacks.destinatr.fragments.ResultListViewFragment
+import io.lassondehacks.destinatr.services.LocationNotifyService
 import io.lassondehacks.destinatr.services.DirectionService
 import io.lassondehacks.destinatr.utils.LocationUtilities
 
@@ -63,6 +72,9 @@ class MapsActivity : FragmentActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+        startService(Intent(this, LocationNotifyService::class.java))
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
@@ -78,6 +90,9 @@ class MapsActivity : FragmentActivity(),
                 if (event.x <= search_bar.compoundDrawables[DRAWABLE_LEFT].bounds.width()) {
                     showParkingFiltersAlert()
                     return@setOnTouchListener true
+                }
+                if (resultsFragment?.size?.compareTo(0) == 1) {
+                    result_container.visibility = View.VISIBLE
                 }
             }
             return@setOnTouchListener false
@@ -136,6 +151,7 @@ class MapsActivity : FragmentActivity(),
             requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         } else {
             updatePosition()
+            startLocationUpdates()
 
             var currentPosition = mLastLocation
             val center = CameraUpdateFactory.newLatLng(LatLng(currentPosition!!.latitude, currentPosition!!.longitude))
@@ -151,7 +167,7 @@ class MapsActivity : FragmentActivity(),
         ft.commit()
         result_container.visibility = View.INVISIBLE
 
-        search_bar.addTextChangedListener(object :TextWatcher {
+        search_bar.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -159,10 +175,12 @@ class MapsActivity : FragmentActivity(),
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s!!.isNotEmpty()) {
-                    resultsFragment!!.update(
-                            search_bar.text.toString(),
-                            LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 1f))
+                resultsFragment!!.update(
+                        search_bar.text.toString(),
+                        LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 1f))
+                if (resultsFragment?.size?.compareTo(0) == 1) {
+                    result_container.visibility = View.INVISIBLE
+                } else {
                     result_container.visibility = View.VISIBLE
                 }
             }
@@ -185,15 +203,6 @@ class MapsActivity : FragmentActivity(),
         updatePosition()
     }
 
-    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-    }
-
-    override fun onProviderEnabled(provider: String?) {
-    }
-
-    override fun onProviderDisabled(provider: String?) {
-    }
-
     fun updatePosition() {
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient)
     }
@@ -203,11 +212,33 @@ class MapsActivity : FragmentActivity(),
         parkingFilters.setTitle("Filtres de stationnements")
 
         parkingFilters.setView(R.layout.parking_filters)
-        parkingFilters.setPositiveButton("Fermer", { dialog, id -> dialog.cancel() })
+        parkingFilters.setPositiveButton("Fermer", { dialog, id ->
+            dialog.cancel()
+        })
         var alert = parkingFilters.create()
         alert.show()
         val positive = alert.getButton(AlertDialog.BUTTON_POSITIVE)
         positive.setTextColor(Color.BLACK)
+
+        var prefs = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+        var editor = prefs.edit()
+        (alert.findViewById(R.id.parking_meter_parkings) as Switch).isChecked = prefs.getBoolean(R.id.parking_meter_parkings.toString(), true)
+        (alert.findViewById(R.id.parking_meter_parkings) as Switch).setOnCheckedChangeListener { buttonView, isChecked ->
+            editor.putBoolean(R.id.parking_meter_parkings.toString(), isChecked)
+            editor.apply()
+        }
+
+        (alert.findViewById(R.id.free_parkings) as Switch).isChecked = prefs.getBoolean(R.id.free_parkings.toString(), true)
+        (alert.findViewById(R.id.free_parkings) as Switch).setOnCheckedChangeListener { buttonView, isChecked ->
+            editor.putBoolean(R.id.free_parkings.toString(), isChecked)
+            editor.apply()
+        }
+
+        (alert.findViewById(R.id.sticker_parkings) as Switch).isChecked = prefs.getBoolean(R.id.sticker_parkings.toString(), true)
+        (alert.findViewById(R.id.sticker_parkings) as Switch).setOnCheckedChangeListener { buttonView, isChecked ->
+            editor.putBoolean(R.id.sticker_parkings.toString(), isChecked)
+            editor.apply()
+        }
     }
 
     fun onResultSelection(result: Result) {
@@ -255,4 +286,30 @@ class MapsActivity : FragmentActivity(),
         polyline = mMap!!.addPolyline(rectLine)
     }
 
+    override fun onBackPressed() {
+        if (infoCardContainer.visibility != View.INVISIBLE) {
+            result_container.visibility = View.INVISIBLE
+            infoCardContainer.visibility = View.INVISIBLE
+            search_bar.text.clear()
+            mMap!!.clear()
+            val destination = CameraUpdateFactory.newLatLng(LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude))
+            mMap!!.moveCamera(destination)
+            mMap!!.animateCamera(CameraUpdateFactory.zoomTo(13f))
+            var view = this.currentFocus
+            if (view != null) {
+                var imm = (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+                imm.hideSoftInputFromWindow(view.windowToken, 0)
+            }
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    fun startLocationUpdates() {
+        LocationServices.FusedLocationApi.requestLocationUpdates(
+                googleApiClient!!,
+                LocationRequest.create().setInterval(10).setSmallestDisplacement(1.0f).setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)!!,
+                this
+        )
+    }
 }
