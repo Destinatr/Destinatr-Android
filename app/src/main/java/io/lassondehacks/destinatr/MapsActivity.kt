@@ -23,12 +23,10 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdate
 import kotlinx.android.synthetic.main.activity_maps.*
 import android.R.string.cancel
-import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
-import android.content.SharedPreferences
+import android.content.*
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.net.Uri
 import android.renderscript.RenderScript
 import android.text.Editable
 import android.text.TextWatcher
@@ -49,7 +47,6 @@ import io.lassondehacks.destinatr.services.LocationNotifyService
 import io.lassondehacks.destinatr.services.DirectionService
 import io.lassondehacks.destinatr.utils.LocationUtilities
 
-
 class MapsActivity : FragmentActivity(),
         OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -58,6 +55,8 @@ class MapsActivity : FragmentActivity(),
     val REQUEST_LOCATION_PERMISSION = 1
 
     private var mMap: GoogleMap? = null
+
+
 
     var marker: Marker? = null
     var polyline: Polyline? = null
@@ -254,7 +253,10 @@ class MapsActivity : FragmentActivity(),
 
         ds.getDirectionInfo(LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude), LatLng(result.latitude!!, result.longitude!!))
 
-        placeInfoFragment.setInfo(result, {})
+        placeInfoFragment.setInfo(result, {
+            r -> switchToGoogleNavigation(r)
+        })
+
         infoCardContainer.visibility = View.VISIBLE
         result_container.visibility = View.INVISIBLE
         marker = mMap!!.addMarker(MarkerOptions().position(LatLng(result.latitude!!, result.longitude!!)).title(result.title))
@@ -308,8 +310,28 @@ class MapsActivity : FragmentActivity(),
     fun startLocationUpdates() {
         LocationServices.FusedLocationApi.requestLocationUpdates(
                 googleApiClient!!,
-                LocationRequest.create().setInterval(10).setSmallestDisplacement(1.0f).setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)!!,
+                LocationRequest.create().setInterval(10).setSmallestDisplacement(0.01f).setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)!!,
                 this
         )
+    }
+
+    fun switchToGoogleNavigation(result: Result) {
+        val gmmIntentUri = Uri.parse("google.navigation:q=${result.latitude},${result.longitude}")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.`package` = "com.google.android.apps.maps"
+        startActivity(mapIntent)
+    }
+
+    class LocationReceiver: BroadcastReceiver() {
+
+        val POSITION_UPDATE = "io.lassondehacks.destinatr.intent.action.NotifyUpdate"
+
+        override fun onReceive(context: Context, intent: Intent) {
+            println("LOCATION UPDATE")
+            var i = Intent()
+            i.setAction(POSITION_UPDATE)
+            context.sendBroadcast(i)
+        }
+
     }
 }
