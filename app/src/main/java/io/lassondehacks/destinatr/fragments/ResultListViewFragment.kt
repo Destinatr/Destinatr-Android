@@ -1,17 +1,25 @@
 package io.lassondehacks.destinatr.fragments
 
-import android.content.Context
+
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.CardView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.common.api.PendingResult
+import com.google.android.gms.location.places.AutocompleteFilter
+import com.google.android.gms.location.places.AutocompletePrediction
+import com.google.android.gms.location.places.Places
+import com.google.android.gms.maps.model.LatLngBounds
 import io.lassondehacks.destinatr.R
+import javax.xml.datatype.DatatypeConstants.SECONDS
+import com.google.android.gms.location.places.AutocompletePredictionBuffer
+import io.lassondehacks.destinatr.domain.Result
+import java.util.concurrent.TimeUnit
 
-class ResultListViewFragment(val title: String, val distance_km: Int, val onClickRegister: () -> Unit) : Fragment() {
+
+class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: () -> Unit) : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,13 +29,24 @@ class ResultListViewFragment(val title: String, val distance_km: Int, val onClic
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = inflater!!.inflate(R.layout.fragment_result_list_view, container, false)
 
-        (view?.findViewById(R.id.result_title) as TextView).text = title
-
-        (view?.findViewById(R.id.card_view) as CardView).setOnClickListener { onClickRegister() }
-
-        (view?.findViewById(R.id.distance_label) as TextView).text = "${distance_km}km from your position"
-
         return view
+    }
+
+    fun update(query: String, bounds: LatLngBounds, filters: AutocompleteFilter) {
+
+        var result = Places.GeoDataApi.getAutocompletePredictions(client, query,
+                bounds, filters)
+
+        var ft = getChildFragmentManager().beginTransaction()
+
+        val autocompletePredictions = result.await(2, TimeUnit.SECONDS)
+
+        for (res in autocompletePredictions) {
+            ft.add(R.id.card_view, ResultFragment(Result(res.placeId, res.getPrimaryText(null).toString(), 10)))
+        }
+
+        ft.commit()
+
     }
 
 
