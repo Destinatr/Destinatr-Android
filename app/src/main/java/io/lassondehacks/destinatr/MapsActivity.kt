@@ -32,6 +32,7 @@ import android.text.TextWatcher
 import com.google.android.gms.location.places.AutocompleteFilter
 import com.google.android.gms.location.places.Places
 import com.google.android.gms.maps.model.LatLngBounds
+import io.lassondehacks.destinatr.domain.Result
 import io.lassondehacks.destinatr.fragments.ResultListViewFragment
 import io.lassondehacks.destinatr.utils.LocationUtilities
 
@@ -129,7 +130,9 @@ class MapsActivity : FragmentActivity(),
             mMap!!.animateCamera(CameraUpdateFactory.zoomTo(15f))
         }
         var ft = supportFragmentManager.beginTransaction()
-        resultsFragment = ResultListViewFragment(googleApiClient!!, {})
+        resultsFragment = ResultListViewFragment(googleApiClient!!, {
+            r -> onResultSelection(r)
+        })
         ft.add(R.id.result_container, resultsFragment)
         ft.commit()
 
@@ -195,6 +198,10 @@ class MapsActivity : FragmentActivity(),
         alert.show()
         val positive = alert.getButton(AlertDialog.BUTTON_POSITIVE)
         positive.setTextColor(Color.BLACK)
+    }
+
+    fun onResultSelection(result: Result) {
+        println(result)
     }
 
 }

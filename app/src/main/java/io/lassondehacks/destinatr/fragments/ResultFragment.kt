@@ -12,7 +12,7 @@ import io.lassondehacks.destinatr.domain.Result
 
 import io.lassondehacks.destinatr.R
 
-class ResultFragment(val result: Result) : Fragment() {
+class ResultFragment(val result: Result, val onClickRegister: (result: Result) -> Unit) : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +27,10 @@ class ResultFragment(val result: Result) : Fragment() {
         (view.findViewById(R.id.distance_label) as TextView).text = result.info
 
         (view.findViewById(R.id.address_label) as TextView).text = result.address
+
+        (view.findViewById(R.id.card_view) as CardView).setOnClickListener {
+            onClickRegister(result)
+        }
 
         return view
     }

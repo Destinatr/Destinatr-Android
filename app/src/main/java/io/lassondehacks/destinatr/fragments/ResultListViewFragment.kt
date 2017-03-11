@@ -3,6 +3,7 @@ package io.lassondehacks.destinatr.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.CardView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,11 +22,21 @@ import io.lassondehacks.destinatr.domain.Result
 import java.util.concurrent.TimeUnit
 import com.google.android.gms.drive.DriveApi
 import com.google.android.gms.drive.Drive
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.location.places.Place
+import com.google.android.gms.location.places.ui.PlaceAutocomplete.getStatus
+import com.google.android.gms.location.places.PlaceBuffer
 
 
 
 
-class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: () -> Unit) : Fragment() {
+
+
+class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: (result: Result) -> Unit) : Fragment() {
+
+    var size: Int = 0
+        get
+        set
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +51,8 @@ class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: (
 
     fun update(query: String, bounds: LatLngBounds) {
 
+        this.size = 0
+
         var result = Places.GeoDataApi.getAutocompletePredictions(client, query,
                 bounds,
                 AutocompleteFilter.Builder().setCountry("CA").build())
@@ -49,13 +62,37 @@ class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: (
                    override fun onResult(result: AutocompletePredictionBuffer) {
                        (view!!.findViewById(R.id.results_layout) as LinearLayout).removeAllViews()
 
-                       var ft = getChildFragmentManager().beginTransaction()
+                       var params = emptyArray<String>()
 
                        for (res in result) {
-                           ft.add(R.id.results_layout, ResultFragment(Result(res.getFullText(null).toString(), res.getSecondaryText(null).toString(), res.getPrimaryText(null).toString(), 0)))
+                           params = params.plus(res.placeId!!)
+                           this@ResultListViewFragment.size++
                        }
 
-                       ft.commit()
+                       Places.GeoDataApi.getPlaceById(client, *params)
+                               .setResultCallback { places ->
+                                   if (places.status.isSuccess) {
+                                       var ft = getChildFragmentManager().beginTransaction()
+
+                                       for (place in places) {
+                                           ft.add(R.id.results_layout, ResultFragment(
+                                                   Result(
+                                                           place.name.toString(),
+                                                           place.address.toString(),
+                                                           place.attributions?.toString(),
+                                                           place.latLng.latitude,
+                                                           place.latLng.longitude
+                                                   ),
+                                                   onClickRegister
+                                                )
+                                           )
+                                       }
+
+                                       ft.commit()
+
+                                   }
+                                   places.release()
+                               }
                     }
                 })
     }
