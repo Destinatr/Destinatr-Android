@@ -241,7 +241,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="bc9e19b33fc12df5ddabd3632ce7ce0fdc1e7f7f">
+        sha1="5d3a2d4187620cda658596aacafad9466d033820">
         <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_980c593c086980f7f66a888926fa8adccaf72a7a/classes.dex" />
     </item>
     <item
@@ -502,7 +502,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="0971c8da58f7ea277fc5970d543f5b7ad6e8e230">
+        sha1="d7d8905e2145f4a29452d2c0f8e7cd411dca978b">
         <dex dex="/Users/brandonroberge/Projects/Destinatr-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_172590ced3dc7ba5c69333ce46ce0a6bf43646ab/classes.dex" />
     </item>
     <item

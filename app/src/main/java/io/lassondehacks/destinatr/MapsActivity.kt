@@ -26,6 +26,12 @@ import kotlinx.android.synthetic.main.activity_maps.*
 import android.R.string.cancel
 import android.content.DialogInterface
 import android.content.res.ColorStateList
+import android.graphics.Color
+import com.google.android.gms.location.places.AutocompleteFilter
+import com.google.android.gms.location.places.Places
+import com.google.android.gms.maps.model.LatLngBounds
+import io.lassondehacks.destinatr.fragments.ResultListViewFragment
+import io.lassondehacks.destinatr.utils.LocationUtilities
 
 
 class MapsActivity : FragmentActivity(),
@@ -39,6 +45,8 @@ class MapsActivity : FragmentActivity(),
 
     var googleApiClient: GoogleApiClient? = null
     var mLastLocation: Location? = null
+
+    var resultsFragment: ResultListViewFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,8 +67,17 @@ class MapsActivity : FragmentActivity(),
                     showParkingFiltersAlert()
                     return@setOnTouchListener true
                 }
+                resultsFragment?.view?.visibility = 0
             }
             return@setOnTouchListener false
+        }
+
+        search_bar.setOnKeyListener { v, keyCode, event ->
+            resultsFragment!!.update(
+                    search_bar.text.toString(),
+                    LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 5000f),
+                    AutocompleteFilter.Builder().setCountry("CA").build())
+            return@setOnKeyListener false
         }
     }
 
@@ -94,6 +111,7 @@ class MapsActivity : FragmentActivity(),
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .addApi(LocationServices.API)
+                    .addApi(Places.GEO_DATA_API)
                     .build()
         }
         googleApiClient?.connect()
@@ -115,6 +133,14 @@ class MapsActivity : FragmentActivity(),
             val center = CameraUpdateFactory.newLatLng(LatLng(currentPosition!!.latitude, currentPosition!!.longitude))
             mMap!!.moveCamera(center)
             mMap!!.animateCamera(CameraUpdateFactory.zoomTo(15f))
+        }
+        var ft = supportFragmentManager.beginTransaction()
+        resultsFragment = ResultListViewFragment(googleApiClient!!, {})
+        ft.add(R.id.result_container, resultsFragment)
+        ft.commit()
+
+        mMap?.setOnMapClickListener {
+            resultsFragment!!.view?.visibility = 4
         }
     }
 
@@ -146,9 +172,11 @@ class MapsActivity : FragmentActivity(),
         parkingFilters.setTitle("Filtres de stationnements")
 
         parkingFilters.setView(R.layout.parking_filters)
-        parkingFilters.setPositiveButton("Fermer", DialogInterface.OnClickListener { dialog, id -> dialog.cancel() })
+        parkingFilters.setPositiveButton("Fermer", { dialog, id -> dialog.cancel() })
         var alert = parkingFilters.create()
         alert.show()
+        val positive = alert.getButton(AlertDialog.BUTTON_POSITIVE)
+        positive.setTextColor(Color.BLACK)
     }
 
 }

@@ -42,7 +42,7 @@ class ResultListViewFragment(val client: GoogleApiClient, val onClickRegister: (
         val autocompletePredictions = result.await(2, TimeUnit.SECONDS)
 
         for (res in autocompletePredictions) {
-            ft.add(R.id.card_view, ResultFragment(Result(res.placeId, res.getPrimaryText(null).toString(), 10)))
+            ft.add(R.id.results_layout, ResultFragment(Result(res.placeId, res.getPrimaryText(null).toString(), 10)))
         }
 
         ft.commit()
