@@ -44,13 +44,17 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.places.AutocompleteFilter
 import com.google.android.gms.location.places.Places
 import com.google.android.gms.maps.model.*
+import com.google.maps.android.clustering.ClusterManager
 import io.lassondehacks.destinatr.domain.DirectionInfo
+import io.lassondehacks.destinatr.domain.Parking
 import io.lassondehacks.destinatr.domain.Result
 import io.lassondehacks.destinatr.fragments.PlaceInfoFragment
 import io.lassondehacks.destinatr.fragments.ResultListViewFragment
 import io.lassondehacks.destinatr.services.LocationNotifyService
 import io.lassondehacks.destinatr.services.DirectionService
+import io.lassondehacks.destinatr.services.ParkingService
 import io.lassondehacks.destinatr.utils.LocationUtilities
+import io.lassondehacks.destinatr.utils.PointClusterItem
 
 class MapsActivity : FragmentActivity(),
         OnMapReadyCallback,
@@ -76,6 +80,10 @@ class MapsActivity : FragmentActivity(),
     var resultsFragment: ResultListViewFragment? = null
 
     var placeInfoFragment: PlaceInfoFragment = PlaceInfoFragment()
+
+    var clusterManager: ClusterManager<PointClusterItem>? = null
+
+    var lastLoadedBounds: LatLngBounds? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -208,6 +216,29 @@ class MapsActivity : FragmentActivity(),
             updatePosition()
             startLocationUpdates()
 
+            clusterManager = ClusterManager<PointClusterItem>(this, mMap)
+            mMap!!.setOnCameraIdleListener {
+
+                if (lastLoadedBounds == null
+                        || !(lastLoadedBounds!!.contains(mMap!!.projection.visibleRegion.latLngBounds.southwest)
+                        && lastLoadedBounds!!.contains(mMap!!.projection.visibleRegion.latLngBounds.northeast))) {
+                    lastLoadedBounds = LatLngBounds(mMap!!.projection.visibleRegion.latLngBounds.southwest, mMap!!.projection.visibleRegion.latLngBounds.northeast)
+                    var distanceResult: FloatArray = arrayOf(0f, 0f, 0f).toFloatArray()
+                    Location.distanceBetween(
+                            mMap!!.projection.visibleRegion.latLngBounds.southwest.latitude,
+                            mMap!!.projection.visibleRegion.latLngBounds.southwest.longitude,
+                            mMap!!.projection.visibleRegion.latLngBounds.northeast.latitude,
+                            mMap!!.projection.visibleRegion.latLngBounds.northeast.longitude, distanceResult)
+                    distanceResult[0] = Math.max(0.0f, Math.min(30000.0f, distanceResult[0] / 2))
+//                    var thread = Thread {
+                        beginFetchParking(mMap!!.cameraPosition.target, distanceResult[0].toInt())
+//                    }
+//                    thread.start()
+                }
+                clusterManager?.onCameraIdle()
+            }
+            mMap?.setOnMarkerClickListener(clusterManager)
+
             var currentPosition = mLastLocation
             val center = CameraUpdateFactory.newLatLng(LatLng(currentPosition!!.latitude, currentPosition!!.longitude))
             mMap!!.moveCamera(center)
@@ -240,7 +271,7 @@ class MapsActivity : FragmentActivity(),
                 }
             }
 
-        });
+        })
 
 
         mMap?.setOnMapClickListener {
@@ -303,7 +334,7 @@ class MapsActivity : FragmentActivity(),
             onDirectionData(r)
         })
 
-        if(marker != null) {
+        if (marker != null) {
             marker!!.remove()
         }
 
@@ -332,14 +363,14 @@ class MapsActivity : FragmentActivity(),
         println(directions)
 
         placeInfoFragment.setDuration(directions.durationText)
-        if(polyline != null) {
+        if (polyline != null) {
             polyline!!.remove()
         }
         var rectLine = PolylineOptions().width(20f).color(Color.argb(180, 33, 150, 243))
 
-            for (i in 0..directions.directions!!.count() - 1) {
-                rectLine.add(directions.directions!![i])
-            }
+        for (i in 0..directions.directions!!.count() - 1) {
+            rectLine.add(directions.directions!![i])
+        }
         polyline = mMap!!.addPolyline(rectLine)
     }
 
@@ -368,6 +399,35 @@ class MapsActivity : FragmentActivity(),
                 LocationRequest.create().setInterval(10).setSmallestDisplacement(1.0f).setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)!!,
                 this
         )
+    }
+
+    fun beginFetchParking(pos: LatLng, radius: Int) {
+        var page = 1
+        clearParkings()
+        fetchParkings(pos, radius, page)
+    }
+
+    fun fetchParkings(pos: LatLng, radius: Int, page: Int) {
+        ParkingService.getParkingsAtLocationAtPage(pos, radius, page, { err, parkings, remaining ->
+            if (err == null && parkings != null) {
+                addParkings(parkings)
+                if (remaining != 0 && remaining != 1) {
+                    fetchParkings(pos, radius, page + 1)
+                }
+            } else {
+                println(err)
+            }
+        })
+    }
+
+    fun addParkings(parkings: List<Parking>) {
+        for (parking in parkings) {
+            clusterManager?.addItem(PointClusterItem(parking.position))
+        }
+    }
+
+    fun clearParkings() {
+        clusterManager!!.clearItems()
     }
 
     fun switchToGoogleNavigation(result: Result) {
@@ -438,5 +498,4 @@ class MapsActivity : FragmentActivity(),
             }
 
         }
-
 }

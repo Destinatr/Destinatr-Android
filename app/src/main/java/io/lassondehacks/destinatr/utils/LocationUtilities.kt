@@ -2,6 +2,7 @@ package io.lassondehacks.destinatr.utils
 
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
+import java.text.DecimalFormat
 
 class LocationUtilities {
 
@@ -19,5 +20,6 @@ class LocationUtilities {
 
             return LatLngBounds(LatLng(y2, x1), LatLng(y1, x2))
         }
+
     }
 }
