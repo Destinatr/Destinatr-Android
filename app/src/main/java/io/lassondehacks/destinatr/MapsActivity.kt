@@ -63,6 +63,7 @@ class MapsActivity : FragmentActivity(),
     val POSITION_UPDATE = "io.lassondehacks.destinatr.intent.action.NotifyUpdate"
     var receiver: LocationReceiver? = null
     var markedPosition: LatLng? = null
+    var positionToSave: LatLng? = null
     var markedPositionForDestinationWalk: LatLng? = null
     var notificationPushed: Boolean = false
 
@@ -159,6 +160,7 @@ class MapsActivity : FragmentActivity(),
             dialog.cancel()
             if (markedPositionForDestinationWalk != null) {
                 switchToGoogleNavigationWalk(markedPositionForDestinationWalk!!)
+                markedPositionForDestinationWalk = null
             }
         }
     }
@@ -518,13 +520,15 @@ class MapsActivity : FragmentActivity(),
         val gmmIntentUri = Uri.parse("google.navigation:q=${location.latitude},${location.longitude}&mode=w")
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
         mapIntent.`package` = "com.google.android.apps.maps"
-        markedPosition = location
+        markedPositionForDestinationWalk = location
         startActivity(mapIntent)
     }
 
     fun createRatingNotification() {
 
         if (!notificationPushed) {
+            positionToSave = markedPosition
+            markedPosition = null
             var notificationIntent = Intent(getApplicationContext(), MapsActivity::class.java)
             notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
 
@@ -584,8 +588,6 @@ class MapsActivity : FragmentActivity(),
                         currentLng,
                         this@MapsActivity.markedPosition!!.latitude,
                         this@MapsActivity.markedPosition!!.longitude,
-                        //45.421300,
-                        //-71.962980,
                         resultArray
                 )
                 if (resultArray[0] <= 50.0f) {
