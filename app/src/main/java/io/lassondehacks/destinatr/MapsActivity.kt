@@ -41,6 +41,7 @@ import io.lassondehacks.destinatr.services.LocationNotifyService
 import io.lassondehacks.destinatr.services.DirectionService
 import io.lassondehacks.destinatr.services.ParkingService
 import io.lassondehacks.destinatr.utils.LocationUtilities
+import io.lassondehacks.destinatr.utils.ParkingClusterRenderer
 import io.lassondehacks.destinatr.utils.PointClusterItem
 import java.util.*
 
@@ -205,6 +206,7 @@ class MapsActivity : FragmentActivity(),
             startLocationUpdates()
 
             clusterManager = ClusterManager<PointClusterItem>(this, mMap)
+            clusterManager!!.renderer = ParkingClusterRenderer(applicationContext, mMap!!, clusterManager!!)
             mMap!!.setOnCameraIdleListener {
                 if (parkingLoadingTimer != null) {
                     parkingLoadingTimer?.cancel()
@@ -272,7 +274,7 @@ class MapsActivity : FragmentActivity(),
                             }
                         }
                     }
-                }, 350)
+                }, 550)
             }
 
         })
@@ -303,6 +305,14 @@ class MapsActivity : FragmentActivity(),
 
         parkingFilters.setView(R.layout.parking_filters)
         parkingFilters.setPositiveButton("Fermer", { dialog, id ->
+            var distanceResult: FloatArray = arrayOf(0f, 0f, 0f).toFloatArray()
+            Location.distanceBetween(
+                    mMap!!.projection.visibleRegion.latLngBounds.southwest.latitude,
+                    mMap!!.projection.visibleRegion.latLngBounds.southwest.longitude,
+                    mMap!!.projection.visibleRegion.latLngBounds.northeast.latitude,
+                    mMap!!.projection.visibleRegion.latLngBounds.northeast.longitude, distanceResult)
+            distanceResult[0] = Math.max(0.0f, Math.min(30000.0f, distanceResult[0] / 2))
+            beginFetchParking(mMap!!.cameraPosition.target, distanceResult[0].toInt())
             dialog.cancel()
         })
         var alert = parkingFilters.create()
@@ -324,11 +334,6 @@ class MapsActivity : FragmentActivity(),
             editor.apply()
         }
 
-        (alert.findViewById(R.id.sticker_parkings) as Switch).isChecked = prefs.getBoolean(R.id.sticker_parkings.toString(), true)
-        (alert.findViewById(R.id.sticker_parkings) as Switch).setOnCheckedChangeListener { buttonView, isChecked ->
-            editor.putBoolean(R.id.sticker_parkings.toString(), isChecked)
-            editor.apply()
-        }
     }
 
     fun onResultSelection(result: Result) {
@@ -432,14 +437,17 @@ class MapsActivity : FragmentActivity(),
     fun beginFetchParking(pos: LatLng, radius: Int) {
         var page = 0
         clearParkings()
-        if(parkingFetchThreadRunning)
+        if (parkingFetchThreadRunning)
             stopParkingFetch = true
         var thread = Thread {
-            while(parkingFetchThreadRunning){
+            while (parkingFetchThreadRunning) {
             }
             parkingFetchThreadRunning = true
             while (!stopParkingFetch) {
-                var (err, parkings, remaining) = ParkingService.getParkingsAtLocationAtPage(pos, radius, page)
+                var (err, parkings, remaining) = ParkingService.getParkingsAtLocationAtPage(
+                        pos, radius, page, getSharedPreferences("prefs", Context.MODE_PRIVATE).getBoolean(R.id.free_parkings.toString(), true),
+                        getSharedPreferences("prefs", Context.MODE_PRIVATE).getBoolean(R.id.parking_meter_parkings.toString(), true)
+                )
                 if (err == null && parkings != null) {
                     addParkings(parkings)
                     page++
@@ -458,13 +466,16 @@ class MapsActivity : FragmentActivity(),
 
     fun addParkings(parkings: List<Parking>) {
         for (parking in parkings) {
-            clusterManager?.addItem(PointClusterItem(parking.position))
+            clusterManager?.addItem(PointClusterItem(parking.position, parking.free!!))
+        }
+        runOnUiThread {
+            clusterManager?.cluster()
         }
     }
 
     fun clearParkings() {
         clusterManager!!.clearItems()
-        mMap!!.clear()
+//        mMap!!.clear()
     }
 
     fun switchToGoogleNavigationDrive(location: LatLng) {

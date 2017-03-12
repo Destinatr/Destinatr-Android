@@ -13,8 +13,4 @@
             android:text="Stationnements gratuits"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/free_parkings" android:layout_margin="5dp"/>
-    <Switch
-            android:text="Stationnements à vignette"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/sticker_parkings" android:layout_margin="5dp"/>
 </LinearLayout>
