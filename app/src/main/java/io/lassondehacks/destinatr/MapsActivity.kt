@@ -37,13 +37,11 @@ import com.google.maps.android.heatmaps.HeatmapTileProvider
 import com.google.maps.android.heatmaps.WeightedLatLng
 import io.lassondehacks.destinatr.domain.DirectionInfo
 import io.lassondehacks.destinatr.domain.Parking
+import io.lassondehacks.destinatr.domain.Rating
 import io.lassondehacks.destinatr.domain.Result
 import io.lassondehacks.destinatr.fragments.PlaceInfoFragment
 import io.lassondehacks.destinatr.fragments.ResultListViewFragment
-import io.lassondehacks.destinatr.services.LocationNotifyService
-import io.lassondehacks.destinatr.services.DirectionService
-import io.lassondehacks.destinatr.services.HeatMapService
-import io.lassondehacks.destinatr.services.ParkingService
+import io.lassondehacks.destinatr.services.*
 import io.lassondehacks.destinatr.utils.LocationUtilities
 import io.lassondehacks.destinatr.utils.ParkingClusterRenderer
 import io.lassondehacks.destinatr.utils.PointClusterItem
@@ -156,7 +154,7 @@ class MapsActivity : FragmentActivity(),
                 .show()
 
         (dialog.findViewById(R.id.ratingBar) as RatingBar).setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            println(rating) //TODO send value to server
+            RatingService.postRating(Rating(positionToSave!!, Date().time, rating))
             dialog.cancel()
             if (markedPositionForDestinationWalk != null) {
                 switchToGoogleNavigationWalk(markedPositionForDestinationWalk!!)
@@ -288,7 +286,7 @@ class MapsActivity : FragmentActivity(),
 
         })
 
-        HeatMapService.getWeightedLatLngArray(LatLng(0.0,0.0), 500, { r ->
+        HeatMapService.getWeightedLatLngArray(LatLng(0.0, 0.0), 500, { r ->
             onHeatMapData(r)
         })
 
@@ -347,7 +345,7 @@ class MapsActivity : FragmentActivity(),
         }
 
         (alert.findViewById(R.id.seek_bar) as DiscreteSeekBar).progress = prefs.getInt(R.id.seek_bar.toString(), 350)
-        (alert.findViewById(R.id.seek_bar) as DiscreteSeekBar).setOnProgressChangeListener(object: DiscreteSeekBar.OnProgressChangeListener {
+        (alert.findViewById(R.id.seek_bar) as DiscreteSeekBar).setOnProgressChangeListener(object : DiscreteSeekBar.OnProgressChangeListener {
             override fun onProgressChanged(seekBar: DiscreteSeekBar?, value: Int, fromUser: Boolean) {
                 editor.putInt(R.id.seek_bar.toString(), value)
                 editor.apply()
@@ -556,11 +554,11 @@ class MapsActivity : FragmentActivity(),
 
         // Create the gradient.
         val colors = intArrayOf(
-                Color.rgb(58, 164, 221),    // Accent
+                Color.rgb(58, 164, 221), // Accent
                 Color.rgb(102, 225, 0) // green
         )
 
-        val startPoints = floatArrayOf(0.1f,1f)
+        val startPoints = floatArrayOf(0.1f, 1f)
 
         val gradient = Gradient(colors, startPoints)
 
