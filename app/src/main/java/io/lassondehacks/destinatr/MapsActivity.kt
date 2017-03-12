@@ -37,6 +37,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.RatingBar
 import android.widget.Switch
 import com.google.android.gms.location.LocationListener
 import com.google.android.gms.location.LocationRequest
@@ -63,6 +64,8 @@ class MapsActivity : FragmentActivity(),
     val POSITION_UPDATE = "io.lassondehacks.destinatr.intent.action.NotifyUpdate"
     var receiver: LocationReceiver? = null
     var markedPosition: Result? = null
+    var notificationPushed: Boolean = false
+    var sharedPref : SharedPreferences? = null
 
     var marker: Marker? = null
     var polyline: Polyline? = null
@@ -79,6 +82,13 @@ class MapsActivity : FragmentActivity(),
         setContentView(R.layout.activity_maps)
 
         startService(Intent(this, LocationNotifyService::class.java))
+
+        if(sharedPref == null){
+            sharedPref = getSharedPreferences("rating_pref", Context.MODE_PRIVATE)
+            val editor = sharedPref!!.edit()
+            editor.putBoolean("location_not_rated", false)
+            editor.apply()
+        }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -111,8 +121,10 @@ class MapsActivity : FragmentActivity(),
         var filter = IntentFilter()
         filter.addAction(POSITION_UPDATE)
 
-        var receiver = LocationReceiver()
-        registerReceiver(receiver, filter)
+        if(receiver == null) {
+            receiver = LocationReceiver()
+            registerReceiver(receiver, filter)
+        }
     }
 
     override fun onDestroy() {
@@ -121,6 +133,30 @@ class MapsActivity : FragmentActivity(),
             receiver = null
         }
         super.onDestroy()
+    }
+
+    override fun onResume(){
+        super.onResume()
+
+        if(sharedPref != null) {
+            if(sharedPref!!.getBoolean("location_not_rated", false)) {
+                showRatingDialog()
+                val editor = sharedPref!!.edit()
+                editor.putBoolean("location_not_rated", false)
+                editor.apply()
+            }
+        }
+    }
+
+    fun showRatingDialog() {
+        val dialog = AlertDialog.Builder(this)
+                .setView(R.layout.rating_modal)
+                .show()
+
+        (dialog.findViewById(R.id.ratingBar) as RatingBar).setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            println(rating)
+            dialog.cancel()
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -289,7 +325,6 @@ class MapsActivity : FragmentActivity(),
             var imm = (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
-
     }
 
     fun onDirectionData(directions: DirectionInfo) {
@@ -345,32 +380,37 @@ class MapsActivity : FragmentActivity(),
 
     fun createRatingNotification() {
 
-        val mBuilder = NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_directions_car_black_24dp)
-                .setContentTitle("DestinatR")
-                .setContentText("You moved!")
-        val mId = 1
+        if(!notificationPushed) {
+            val mBuilder = NotificationCompat.Builder(this)
+                    .setSmallIcon(R.drawable.ic_directions_car_black_24dp)
+                    .setContentTitle("DestinatR - Your are at your destination!")
+                    .setContentText("Please rate your parking to help us improve our app")
+                    .setVibrate(longArrayOf(100, 250, 100, 250, 100, 250))
+                    .setLights(Color.RED, 3000, 3000)
+            val mId = 1
 
-        val resultIntent = Intent(this, MapsActivity::class.java)
+            val resultIntent = Intent(this, MapsActivity::class.java)
 
 
-        val stackBuilder = TaskStackBuilder.create(this)
+            val stackBuilder = TaskStackBuilder.create(this)
 
-        stackBuilder.addParentStack(MapsActivity::class.java)
+            stackBuilder.addParentStack(MapsActivity::class.java)
 
-        stackBuilder.addNextIntent(resultIntent)
-        val resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+            stackBuilder.addNextIntent(resultIntent)
+            val resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        var contentIntent = mBuilder.setContentIntent(resultPendingIntent)
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(mId, mBuilder.build())
+            var contentIntent = mBuilder.setContentIntent(resultPendingIntent)
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(mId, mBuilder.build())
+            notificationPushed = true
+        }
+
 
     }
 
     inner class LocationReceiver: BroadcastReceiver() {
 
             override fun onReceive(context: Context, intent: Intent) {
-                println("LOCATION UPDATE")
                 if(this@MapsActivity.markedPosition != null) {
 
                     val resultArray = FloatArray(4)
@@ -381,13 +421,19 @@ class MapsActivity : FragmentActivity(),
                     Location.distanceBetween(
                             currentLat,
                             currentLng,
-                            this@MapsActivity.markedPosition!!.latitude!!,
-                            this@MapsActivity.markedPosition!!.longitude!!,
+                            //this@MapsActivity.markedPosition!!.latitude!!,
+                            //this@MapsActivity.markedPosition!!.longitude!!,
+                            45.421300,
+                            -71.962980,
                             resultArray
                     )
-                    if(resultArray[0] <= 20.0f) {
+                    //if(resultArray[0] <= 20.0f) {
                         this@MapsActivity.createRatingNotification()
-                    }
+
+                        val editor = sharedPref!!.edit()
+                        editor.putBoolean("location_not_rated", true)
+                        editor.commit()
+                    //}
                 }
             }
 

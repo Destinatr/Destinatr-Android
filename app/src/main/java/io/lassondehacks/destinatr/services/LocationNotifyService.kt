@@ -31,8 +31,8 @@ class LocationNotifyService : Service(), LocationListener, GoogleApiClient.Conne
         //show error dialog if GoolglePlayServices not available
         if (isGooglePlayServicesAvailable) {
             mLocationRequest = LocationRequest()
-            mLocationRequest!!.interval = 10
-            mLocationRequest!!.fastestInterval = 10
+            mLocationRequest!!.interval = 100
+            mLocationRequest!!.fastestInterval = 50
             mLocationRequest!!.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
             mLocationRequest!!.smallestDisplacement = 1.0f
             mGoogleApiClient = GoogleApiClient.Builder(this)
