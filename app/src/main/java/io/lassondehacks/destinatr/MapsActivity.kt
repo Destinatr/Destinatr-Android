@@ -344,7 +344,7 @@ class MapsActivity : FragmentActivity(),
             editor.apply()
         }
 
-        (alert.findViewById(R.id.seek_bar) as DiscreteSeekBar).progress = prefs.getInt(R.id.seek_bar.toString(), 0)
+        (alert.findViewById(R.id.seek_bar) as DiscreteSeekBar).progress = prefs.getInt(R.id.seek_bar.toString(), 350)
         (alert.findViewById(R.id.seek_bar) as DiscreteSeekBar).setOnProgressChangeListener(object: DiscreteSeekBar.OnProgressChangeListener {
             override fun onProgressChanged(seekBar: DiscreteSeekBar?, value: Int, fromUser: Boolean) {
                 editor.putInt(R.id.seek_bar.toString(), value)
@@ -385,7 +385,7 @@ class MapsActivity : FragmentActivity(),
 
         val destination = CameraUpdateFactory.newLatLng(LatLng(result.latitude!!, result.longitude!!))
         mMap!!.moveCamera(destination)
-        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(15f))
+        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(17f))
         var view = this.currentFocus
         if (view != null) {
             var imm = (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
@@ -443,7 +443,7 @@ class MapsActivity : FragmentActivity(),
             mMap!!.clear()
             val destination = CameraUpdateFactory.newLatLng(LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude))
             mMap!!.moveCamera(destination)
-            mMap!!.animateCamera(CameraUpdateFactory.zoomTo(15f))
+            mMap!!.animateCamera(CameraUpdateFactory.zoomTo(17f))
             var view = this.currentFocus
             if (view != null) {
                 var imm = (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
