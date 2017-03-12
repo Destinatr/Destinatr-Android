@@ -30,7 +30,8 @@
                 android:name=".MapsActivity"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan"
                 android:label="@string/title_activity_maps"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

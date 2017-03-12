@@ -12,7 +12,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import android.Manifest
-import android.app.AlertDialog
 import android.location.Location
 import android.view.MotionEvent
 import android.widget.Button
@@ -23,9 +22,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdate
 import kotlinx.android.synthetic.main.activity_maps.*
 import android.R.string.cancel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.app.TaskStackBuilder
+import android.app.*
 import android.content.*
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -62,6 +59,7 @@ class MapsActivity : FragmentActivity(),
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
     val REQUEST_LOCATION_PERMISSION = 1
+    val NOTIFICATION_ID = 1337
 
     private var mMap: GoogleMap? = null
 
@@ -69,7 +67,6 @@ class MapsActivity : FragmentActivity(),
     var receiver: LocationReceiver? = null
     var markedPosition: Result? = null
     var notificationPushed: Boolean = false
-    var sharedPref : SharedPreferences? = null
 
     var marker: Marker? = null
     var polyline: Polyline? = null
@@ -90,13 +87,6 @@ class MapsActivity : FragmentActivity(),
         setContentView(R.layout.activity_maps)
 
         startService(Intent(this, LocationNotifyService::class.java))
-
-        if(sharedPref == null){
-            sharedPref = getSharedPreferences("rating_pref", Context.MODE_PRIVATE)
-            val editor = sharedPref!!.edit()
-            editor.putBoolean("location_not_rated", false)
-            editor.apply()
-        }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -146,13 +136,9 @@ class MapsActivity : FragmentActivity(),
     override fun onResume(){
         super.onResume()
 
-        if(sharedPref != null) {
-            if(sharedPref!!.getBoolean("location_not_rated", false)) {
+        if(notificationPushed) {
+            notificationPushed = false
                 showRatingDialog()
-                val editor = sharedPref!!.edit()
-                editor.putBoolean("location_not_rated", false)
-                editor.apply()
-            }
         }
     }
 
@@ -230,10 +216,7 @@ class MapsActivity : FragmentActivity(),
                             mMap!!.projection.visibleRegion.latLngBounds.northeast.latitude,
                             mMap!!.projection.visibleRegion.latLngBounds.northeast.longitude, distanceResult)
                     distanceResult[0] = Math.max(0.0f, Math.min(30000.0f, distanceResult[0] / 2))
-//                    var thread = Thread {
                         beginFetchParking(mMap!!.cameraPosition.target, distanceResult[0].toInt())
-//                    }
-//                    thread.start()
                 }
                 clusterManager?.onCameraIdle()
             }
@@ -441,31 +424,27 @@ class MapsActivity : FragmentActivity(),
     fun createRatingNotification() {
 
         if(!notificationPushed) {
+            var notificationIntent = Intent(getApplicationContext(), MapsActivity::class.java)
+            notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+
+            var pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_ONE_SHOT)
+
             val mBuilder = NotificationCompat.Builder(this)
                     .setSmallIcon(R.drawable.ic_directions_car_black_24dp)
                     .setContentTitle("DestinatR - Your are at your destination!")
                     .setContentText("Please rate your parking to help us improve our app")
                     .setVibrate(longArrayOf(100, 250, 100, 250, 100, 250))
                     .setLights(Color.RED, 3000, 3000)
-            val mId = 1
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+            var notification = mBuilder.build()
 
-            val resultIntent = Intent(this, MapsActivity::class.java)
+            notification.flags = (Notification.FLAG_AUTO_CANCEL or Notification.FLAG_ONGOING_EVENT)
 
-
-            val stackBuilder = TaskStackBuilder.create(this)
-
-            stackBuilder.addParentStack(MapsActivity::class.java)
-
-            stackBuilder.addNextIntent(resultIntent)
-            val resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
-
-            var contentIntent = mBuilder.setContentIntent(resultPendingIntent)
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.notify(mId, mBuilder.build())
+            notificationManager.notify(NOTIFICATION_ID, mBuilder.build())
             notificationPushed = true
         }
-
-
     }
 
     inner class LocationReceiver: BroadcastReceiver() {
@@ -481,19 +460,15 @@ class MapsActivity : FragmentActivity(),
                     Location.distanceBetween(
                             currentLat,
                             currentLng,
-                            //this@MapsActivity.markedPosition!!.latitude!!,
-                            //this@MapsActivity.markedPosition!!.longitude!!,
-                            45.421300,
-                            -71.962980,
+                            this@MapsActivity.markedPosition!!.latitude!!,
+                            this@MapsActivity.markedPosition!!.longitude!!,
+                            //45.421300,
+                            //-71.962980,
                             resultArray
                     )
-                    //if(resultArray[0] <= 20.0f) {
+                    if(resultArray[0] <= 20.0f) {
                         this@MapsActivity.createRatingNotification()
-
-                        val editor = sharedPref!!.edit()
-                        editor.putBoolean("location_not_rated", true)
-                        editor.commit()
-                    //}
+                    }
                 }
             }
 
