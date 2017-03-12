@@ -52,6 +52,7 @@ import io.lassondehacks.destinatr.services.DirectionService
 import io.lassondehacks.destinatr.services.ParkingService
 import io.lassondehacks.destinatr.utils.LocationUtilities
 import io.lassondehacks.destinatr.utils.PointClusterItem
+import java.util.*
 
 class MapsActivity : FragmentActivity(),
         OnMapReadyCallback,
@@ -81,6 +82,8 @@ class MapsActivity : FragmentActivity(),
     var clusterManager: ClusterManager<PointClusterItem>? = null
 
     var lastLoadedBounds: LatLngBounds? = null
+
+    var searchTimeout: TimerTask? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
