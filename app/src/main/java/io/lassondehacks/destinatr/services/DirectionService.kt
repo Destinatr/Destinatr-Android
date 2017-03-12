@@ -118,25 +118,29 @@ class DirectionService(val onDataRegister: (directions: DirectionInfo) -> Unit) 
 
     fun getDirection(json: JsonObject): ArrayList<LatLng> {
         val listGeopoints = ArrayList<LatLng>()
-        val steps = json.array<JsonObject>("routes")!![0].array<JsonObject>("legs")!![0].array<JsonObject>("steps")
-        if (steps!!.count() > 0) {
-            for (i in 0..steps!!.count() - 1) {
-                val obj1 = steps!![i]
+        val routes = json.array<JsonObject>("routes")!!
+        if(routes.size != 0) {
+            val legs = routes[0].array<JsonObject>("legs")!!
+            val steps = legs[0].array<JsonObject>("steps")
+            if (steps!!.count() > 0) {
+                for (i in 0..steps!!.count() - 1) {
+                    val obj1 = steps!![i]
 
-                val startLoc = obj1.obj("start_location")
+                    val startLoc = obj1.obj("start_location")
 
-                listGeopoints.add(LatLng(startLoc!!.double("lat")!!, startLoc!!.double("lng")!!))
+                    listGeopoints.add(LatLng(startLoc!!.double("lat")!!, startLoc!!.double("lng")!!))
 
-                val polyline = obj1.obj("polyline")
+                    val polyline = obj1.obj("polyline")
 
-                val arr = decodePoly(polyline!!.string("points")!!)
-                for (j in arr.indices) {
-                    listGeopoints.add(LatLng(arr[j].latitude, arr[j].longitude))
+                    val arr = decodePoly(polyline!!.string("points")!!)
+                    for (j in arr.indices) {
+                        listGeopoints.add(LatLng(arr[j].latitude, arr[j].longitude))
+                    }
+
+                    val endLoc = obj1.obj("end_location")
+
+                    listGeopoints.add(LatLng(endLoc!!.double("lat")!!, endLoc!!.double("lng")!!))
                 }
-
-                val endLoc = obj1.obj("end_location")
-
-                listGeopoints.add(LatLng(endLoc!!.double("lat")!!, endLoc!!.double("lng")!!))
             }
         }
 

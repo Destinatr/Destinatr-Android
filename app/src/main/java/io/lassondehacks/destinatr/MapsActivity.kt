@@ -23,13 +23,15 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdate
 import kotlinx.android.synthetic.main.activity_maps.*
 import android.R.string.cancel
-import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
-import android.content.SharedPreferences
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.TaskStackBuilder
+import android.content.*
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.net.Uri
 import android.renderscript.RenderScript
+import android.support.v7.app.NotificationCompat
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -53,7 +55,6 @@ import io.lassondehacks.destinatr.services.ParkingService
 import io.lassondehacks.destinatr.utils.LocationUtilities
 import io.lassondehacks.destinatr.utils.PointClusterItem
 
-
 class MapsActivity : FragmentActivity(),
         OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -62,6 +63,10 @@ class MapsActivity : FragmentActivity(),
     val REQUEST_LOCATION_PERMISSION = 1
 
     private var mMap: GoogleMap? = null
+
+    val POSITION_UPDATE = "io.lassondehacks.destinatr.intent.action.NotifyUpdate"
+    var receiver: LocationReceiver? = null
+    var markedPosition: Result? = null
 
     var marker: Marker? = null
     var polyline: Polyline? = null
@@ -110,6 +115,20 @@ class MapsActivity : FragmentActivity(),
         ft.add(R.id.infoCardContainer, placeInfoFragment)
         ft.commit()
         infoCardContainer.visibility = View.INVISIBLE
+
+        var filter = IntentFilter()
+        filter.addAction(POSITION_UPDATE)
+
+        var receiver = LocationReceiver()
+        registerReceiver(receiver, filter)
+    }
+
+    override fun onDestroy() {
+        if (receiver != null) {
+            unregisterReceiver(receiver)
+            receiver = null
+        }
+        super.onDestroy()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -285,7 +304,10 @@ class MapsActivity : FragmentActivity(),
 
         ds.getDirectionInfo(LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude), LatLng(result.latitude!!, result.longitude!!))
 
-        placeInfoFragment.setInfo(result, {})
+        placeInfoFragment.setInfo(result, {
+            r -> switchToGoogleNavigation(r)
+        })
+
         infoCardContainer.visibility = View.VISIBLE
         result_container.visibility = View.INVISIBLE
         marker = mMap!!.addMarker(MarkerOptions().position(LatLng(result.latitude!!, result.longitude!!)).title(result.title))
@@ -372,4 +394,62 @@ class MapsActivity : FragmentActivity(),
     fun clearParkings() {
         clusterManager!!.clearItems()
     }
+
+    fun switchToGoogleNavigation(result: Result) {
+        val gmmIntentUri = Uri.parse("google.navigation:q=${result.latitude},${result.longitude}")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.`package` = "com.google.android.apps.maps"
+        markedPosition = result
+        startActivity(mapIntent)
+    }
+
+    fun createRatingNotification() {
+
+        val mBuilder = NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.ic_directions_car_black_24dp)
+                .setContentTitle("DestinatR")
+                .setContentText("You moved!")
+        val mId = 1
+
+        val resultIntent = Intent(this, MapsActivity::class.java)
+
+
+        val stackBuilder = TaskStackBuilder.create(this)
+
+        stackBuilder.addParentStack(MapsActivity::class.java)
+
+        stackBuilder.addNextIntent(resultIntent)
+        val resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        var contentIntent = mBuilder.setContentIntent(resultPendingIntent)
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(mId, mBuilder.build())
+
+    }
+
+    inner class LocationReceiver: BroadcastReceiver() {
+
+            override fun onReceive(context: Context, intent: Intent) {
+                println("LOCATION UPDATE")
+                if(this@MapsActivity.markedPosition != null) {
+
+                    val resultArray = FloatArray(4)
+                    val currentLocationStr = intent.getStringExtra("CURRENT_LOCATION")
+                    val currentLng = currentLocationStr.substringAfter(",").toDouble()
+                    val currentLat = currentLocationStr.substringBefore(",").toDouble()
+
+                    Location.distanceBetween(
+                            currentLat,
+                            currentLng,
+                            this@MapsActivity.markedPosition!!.latitude!!,
+                            this@MapsActivity.markedPosition!!.longitude!!,
+                            resultArray
+                    )
+                    if(resultArray[0] <= 20.0f) {
+                        this@MapsActivity.createRatingNotification()
+                    }
+                }
+            }
+
+        }
 }

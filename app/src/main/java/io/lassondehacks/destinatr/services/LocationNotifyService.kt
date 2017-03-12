@@ -24,6 +24,8 @@ class LocationNotifyService : Service(), LocationListener, GoogleApiClient.Conne
     internal var mLocationRequest: LocationRequest? = null
     internal var mGoogleApiClient: GoogleApiClient? = null
 
+    val BROADCAST = "PACKAGE_NAME.android.action.broadcast"
+
     override fun onCreate() {
 
         //show error dialog if GoolglePlayServices not available
@@ -80,7 +82,10 @@ class LocationNotifyService : Service(), LocationListener, GoogleApiClient.Conne
     }
 
     override fun onLocationChanged(location: Location) {
-        println("Changed location!")
+        println("Changed location!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        val i = Intent("io.lassondehacks.destinatr.intent.action.NotifyUpdate")
+        i.putExtra("CURRENT_LOCATION", "${location.latitude},${location.longitude}")
+        sendBroadcast(i)
     }
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
