@@ -13,20 +13,19 @@ class ParkingService {
     companion object {
         val API_URL = "http://159.203.14.223:8080"
 
-        fun getParkingsAtLocationAtPage(location: LatLng, radius: Int, page: Int, cb: (err: String?, List<Parking>?, Int?) -> Unit) {
-            "$API_URL/parking/near/${location.longitude}/${location.latitude}/$radius/$page/100"
-                    .httpGet().timeout(60000).timeoutRead(60000)
-                    .responseString { request, response, result ->
-                        result.fold({ d ->
-                            val parser: com.beust.klaxon.Parser = com.beust.klaxon.Parser()
-                            val stringBuilder: StringBuilder = StringBuilder(d)
-                            val json: JsonObject = parser.parse(stringBuilder) as JsonObject
-                            var parkings = getParkingList(json.array<JsonObject>("parkings")!!)
-                            cb(null, parkings, json.int("remainingPages"))
-                        }, { err ->
-                            cb(err.message, null, null)
-                        })
-                    }
+        fun getParkingsAtLocationAtPage(location: LatLng, radius: Int, page: Int): Triple<String?, List<Parking>?, Int?> {
+            var (request, response, result) = "$API_URL/parking/near/${location.longitude}/${location.latitude}/$radius/$page/100"
+                    .httpGet().timeout(60000).timeoutRead(60000).responseString()
+            result.fold({ d ->
+                val parser: com.beust.klaxon.Parser = com.beust.klaxon.Parser()
+                val stringBuilder: StringBuilder = StringBuilder(d)
+                val json: JsonObject = parser.parse(stringBuilder) as JsonObject
+                var parkings = getParkingList(json.array<JsonObject>("parkings")!!)
+                return Triple(null, parkings, json.int("remainingPages"))
+            }, { err ->
+                return Triple(err.message, null, null)
+            })
+
         }
 
         fun getParkingList(array: JsonArray<JsonObject>): List<Parking> {

@@ -41,6 +41,8 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.places.AutocompleteFilter
 import com.google.android.gms.location.places.Places
 import com.google.android.gms.maps.model.*
+import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks.await
 import com.google.maps.android.clustering.ClusterManager
 import io.lassondehacks.destinatr.domain.DirectionInfo
 import io.lassondehacks.destinatr.domain.Parking
@@ -84,7 +86,11 @@ class MapsActivity : FragmentActivity(),
 
     var lastLoadedBounds: LatLngBounds? = null
 
-    var searchTimeout: TimerTask? = null
+    var searchTimer: Timer? = null
+    var parkingLoadingTimer: Timer? = null
+
+    var stopParkingFetch = false
+    var parkingFetchThreadRunning = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -123,7 +129,7 @@ class MapsActivity : FragmentActivity(),
         var filter = IntentFilter()
         filter.addAction(POSITION_UPDATE)
 
-        if(receiver == null) {
+        if (receiver == null) {
             receiver = LocationReceiver()
             registerReceiver(receiver, filter)
         }
@@ -137,12 +143,12 @@ class MapsActivity : FragmentActivity(),
         super.onDestroy()
     }
 
-    override fun onResume(){
+    override fun onResume() {
         super.onResume()
 
-        if(notificationPushed) {
+        if (notificationPushed) {
             notificationPushed = false
-                showRatingDialog()
+            showRatingDialog()
         }
     }
 
@@ -208,20 +214,29 @@ class MapsActivity : FragmentActivity(),
 
             clusterManager = ClusterManager<PointClusterItem>(this, mMap)
             mMap!!.setOnCameraIdleListener {
-
-                if (lastLoadedBounds == null
-                        || !(lastLoadedBounds!!.contains(mMap!!.projection.visibleRegion.latLngBounds.southwest)
-                        && lastLoadedBounds!!.contains(mMap!!.projection.visibleRegion.latLngBounds.northeast))) {
-                    lastLoadedBounds = LatLngBounds(mMap!!.projection.visibleRegion.latLngBounds.southwest, mMap!!.projection.visibleRegion.latLngBounds.northeast)
-                    var distanceResult: FloatArray = arrayOf(0f, 0f, 0f).toFloatArray()
-                    Location.distanceBetween(
-                            mMap!!.projection.visibleRegion.latLngBounds.southwest.latitude,
-                            mMap!!.projection.visibleRegion.latLngBounds.southwest.longitude,
-                            mMap!!.projection.visibleRegion.latLngBounds.northeast.latitude,
-                            mMap!!.projection.visibleRegion.latLngBounds.northeast.longitude, distanceResult)
-                    distanceResult[0] = Math.max(0.0f, Math.min(30000.0f, distanceResult[0] / 2))
-                        beginFetchParking(mMap!!.cameraPosition.target, distanceResult[0].toInt())
+                if (parkingLoadingTimer != null) {
+                    parkingLoadingTimer?.cancel()
                 }
+                parkingLoadingTimer = Timer()
+                parkingLoadingTimer!!.schedule(object : TimerTask() {
+                    override fun run() {
+                        runOnUiThread {
+                            if (lastLoadedBounds == null
+                                    || !(lastLoadedBounds!!.contains(mMap!!.projection.visibleRegion.latLngBounds.southwest)
+                                    && lastLoadedBounds!!.contains(mMap!!.projection.visibleRegion.latLngBounds.northeast))) {
+                                lastLoadedBounds = LatLngBounds(mMap!!.projection.visibleRegion.latLngBounds.southwest, mMap!!.projection.visibleRegion.latLngBounds.northeast)
+                                var distanceResult: FloatArray = arrayOf(0f, 0f, 0f).toFloatArray()
+                                Location.distanceBetween(
+                                        mMap!!.projection.visibleRegion.latLngBounds.southwest.latitude,
+                                        mMap!!.projection.visibleRegion.latLngBounds.southwest.longitude,
+                                        mMap!!.projection.visibleRegion.latLngBounds.northeast.latitude,
+                                        mMap!!.projection.visibleRegion.latLngBounds.northeast.longitude, distanceResult)
+                                distanceResult[0] = Math.max(0.0f, Math.min(30000.0f, distanceResult[0] / 2))
+                                beginFetchParking(mMap!!.cameraPosition.target, distanceResult[0].toInt())
+                            }
+                        }
+                    }
+                }, 300)
                 clusterManager?.onCameraIdle()
             }
             mMap?.setOnMarkerClickListener(clusterManager)
@@ -248,14 +263,24 @@ class MapsActivity : FragmentActivity(),
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                resultsFragment!!.update(
-                        search_bar.text.toString(),
-                        LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 1f))
-                if (resultsFragment?.size?.compareTo(0) == 1) {
-                    result_container.visibility = View.INVISIBLE
-                } else {
-                    result_container.visibility = View.VISIBLE
+                if (searchTimer != null) {
+                    searchTimer?.cancel()
                 }
+                searchTimer = Timer()
+                searchTimer!!.schedule(object : TimerTask() {
+                    override fun run() {
+                        runOnUiThread {
+                            resultsFragment!!.update(
+                                    search_bar.text.toString(),
+                                    LocationUtilities.getBoundingBoxAround(LatLng(mLastLocation?.latitude!!, mLastLocation?.longitude!!), 1f))
+                            if (resultsFragment?.size?.compareTo(0) == 1) {
+                                result_container.visibility = View.INVISIBLE
+                            } else {
+                                result_container.visibility = View.VISIBLE
+                            }
+                        }
+                    }
+                }, 350)
             }
 
         })
@@ -328,7 +353,8 @@ class MapsActivity : FragmentActivity(),
         ds.getDirectionInfo(LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude), LatLng(result.latitude!!, result.longitude!!))
 
         placeInfoFragment.setInfo(result, {
-            r -> switchToGoogleNavigation(r)
+            r ->
+            switchToGoogleNavigation(r)
         })
 
         infoCardContainer.visibility = View.VISIBLE
@@ -337,7 +363,7 @@ class MapsActivity : FragmentActivity(),
 
         val destination = CameraUpdateFactory.newLatLng(LatLng(result.latitude!!, result.longitude!!))
         mMap!!.moveCamera(destination)
-        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(13f))
+        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(15f))
         var view = this.currentFocus
         if (view != null) {
             var imm = (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
@@ -388,7 +414,7 @@ class MapsActivity : FragmentActivity(),
             mMap!!.clear()
             val destination = CameraUpdateFactory.newLatLng(LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude))
             mMap!!.moveCamera(destination)
-            mMap!!.animateCamera(CameraUpdateFactory.zoomTo(13f))
+            mMap!!.animateCamera(CameraUpdateFactory.zoomTo(15f))
             var view = this.currentFocus
             if (view != null) {
                 var imm = (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
@@ -408,22 +434,30 @@ class MapsActivity : FragmentActivity(),
     }
 
     fun beginFetchParking(pos: LatLng, radius: Int) {
-        var page = 1
+        var page = 0
         clearParkings()
-        fetchParkings(pos, radius, page)
-    }
-
-    fun fetchParkings(pos: LatLng, radius: Int, page: Int) {
-        ParkingService.getParkingsAtLocationAtPage(pos, radius, page, { err, parkings, remaining ->
-            if (err == null && parkings != null) {
-                addParkings(parkings)
-                if (remaining != 0 && remaining != 1) {
-                    fetchParkings(pos, radius, page + 1)
-                }
-            } else {
-                println(err)
+        if(parkingFetchThreadRunning)
+            stopParkingFetch = true
+        var thread = Thread {
+            while(parkingFetchThreadRunning){
             }
-        })
+            parkingFetchThreadRunning = true
+            while (!stopParkingFetch) {
+                var (err, parkings, remaining) = ParkingService.getParkingsAtLocationAtPage(pos, radius, page)
+                if (err == null && parkings != null) {
+                    addParkings(parkings)
+                    page++
+                    if (remaining!! <= 0) {
+                        break
+                    }
+                } else {
+                    break
+                }
+            }
+            parkingFetchThreadRunning = false
+            stopParkingFetch = false
+        }
+        thread.start()
     }
 
     fun addParkings(parkings: List<Parking>) {
@@ -434,6 +468,7 @@ class MapsActivity : FragmentActivity(),
 
     fun clearParkings() {
         clusterManager!!.clearItems()
+        mMap!!.clear()
     }
 
     fun switchToGoogleNavigation(result: Result) {
@@ -446,7 +481,7 @@ class MapsActivity : FragmentActivity(),
 
     fun createRatingNotification() {
 
-        if(!notificationPushed) {
+        if (!notificationPushed) {
             var notificationIntent = Intent(getApplicationContext(), MapsActivity::class.java)
             notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
 
@@ -470,30 +505,30 @@ class MapsActivity : FragmentActivity(),
         }
     }
 
-    inner class LocationReceiver: BroadcastReceiver() {
+    inner class LocationReceiver : BroadcastReceiver() {
 
-            override fun onReceive(context: Context, intent: Intent) {
-                if(this@MapsActivity.markedPosition != null) {
+        override fun onReceive(context: Context, intent: Intent) {
+            if (this@MapsActivity.markedPosition != null) {
 
-                    val resultArray = FloatArray(4)
-                    val currentLocationStr = intent.getStringExtra("CURRENT_LOCATION")
-                    val currentLng = currentLocationStr.substringAfter(",").toDouble()
-                    val currentLat = currentLocationStr.substringBefore(",").toDouble()
+                val resultArray = FloatArray(4)
+                val currentLocationStr = intent.getStringExtra("CURRENT_LOCATION")
+                val currentLng = currentLocationStr.substringAfter(",").toDouble()
+                val currentLat = currentLocationStr.substringBefore(",").toDouble()
 
-                    Location.distanceBetween(
-                            currentLat,
-                            currentLng,
-                            this@MapsActivity.markedPosition!!.latitude!!,
-                            this@MapsActivity.markedPosition!!.longitude!!,
-                            //45.421300,
-                            //-71.962980,
-                            resultArray
-                    )
-                    if(resultArray[0] <= 20.0f) {
-                        this@MapsActivity.createRatingNotification()
-                    }
+                Location.distanceBetween(
+                        currentLat,
+                        currentLng,
+                        this@MapsActivity.markedPosition!!.latitude!!,
+                        this@MapsActivity.markedPosition!!.longitude!!,
+                        //45.421300,
+                        //-71.962980,
+                        resultArray
+                )
+                if (resultArray[0] <= 20.0f) {
+                    this@MapsActivity.createRatingNotification()
                 }
             }
-
         }
+
+    }
 }
