@@ -241,6 +241,10 @@ class MapsActivity : FragmentActivity(),
                     }
                 }, 300)
                 clusterManager?.onCameraIdle()
+
+                HeatMapService.getWeightedLatLngArray(mMap!!.cameraPosition.target, 2000, { r ->
+                    onHeatMapData(r)
+                })
             }
             mMap?.setOnMarkerClickListener(clusterManager)
 
@@ -286,10 +290,6 @@ class MapsActivity : FragmentActivity(),
                 }, 550)
             }
 
-        })
-
-        HeatMapService.getWeightedLatLngArray(LatLng(0.0,0.0), 500, { r ->
-            onHeatMapData(r)
         })
 
         mMap?.setOnMapClickListener {
@@ -552,7 +552,10 @@ class MapsActivity : FragmentActivity(),
         }
     }
 
-    fun onHeatMapData(array: List<WeightedLatLng>) {
+    fun onHeatMapData(array: List<WeightedLatLng>?) {
+
+        if(array == null || array.isEmpty())
+            return
 
         // Create the gradient.
         val colors = intArrayOf(
