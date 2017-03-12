@@ -3,8 +3,6 @@ package io.lassondehacks.destinatr
 import android.content.pm.PackageManager
 import android.support.v4.app.FragmentActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -14,35 +12,25 @@ import com.google.android.gms.maps.model.MarkerOptions
 import android.Manifest
 import android.location.Location
 import android.view.MotionEvent
-import android.widget.Button
-import android.widget.Toast
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdate
 import kotlinx.android.synthetic.main.activity_maps.*
-import android.R.string.cancel
 import android.app.*
 import android.content.*
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.net.Uri
-import android.renderscript.RenderScript
 import android.support.v7.app.NotificationCompat
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.RatingBar
 import android.widget.Switch
 import com.google.android.gms.location.LocationListener
 import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.places.AutocompleteFilter
 import com.google.android.gms.location.places.Places
 import com.google.android.gms.maps.model.*
-import com.google.android.gms.tasks.Task
-import com.google.android.gms.tasks.Tasks.await
 import com.google.maps.android.clustering.ClusterManager
 import io.lassondehacks.destinatr.domain.DirectionInfo
 import io.lassondehacks.destinatr.domain.Parking
@@ -521,7 +509,7 @@ class MapsActivity : FragmentActivity(),
         }
     }
 
-    inner class LocationReceiver : BroadcastReceiver() {
+    inner class LocationReceiver : BroadcastReceiver(), LocationListener {
 
         override fun onReceive(context: Context, intent: Intent) {
             if (this@MapsActivity.markedPosition != null) {
@@ -534,8 +522,31 @@ class MapsActivity : FragmentActivity(),
                 Location.distanceBetween(
                         currentLat,
                         currentLng,
-                        this@MapsActivity.markedPosition!!.latitude!!,
-                        this@MapsActivity.markedPosition!!.longitude!!,
+                        this@MapsActivity.markedPosition!!.latitude,
+                        this@MapsActivity.markedPosition!!.longitude,
+                        //45.421300,
+                        //-71.962980,
+                        resultArray
+                )
+                if (resultArray[0] <= 20.0f) {
+                    this@MapsActivity.createRatingNotification()
+                }
+            }
+        }
+
+        override fun onLocationChanged(location: Location?) {
+            if (this@MapsActivity.markedPosition != null) {
+
+                val resultArray = FloatArray(4)
+                val currentLocationStr = intent.getStringExtra("CURRENT_LOCATION")
+                val currentLng = currentLocationStr.substringAfter(",").toDouble()
+                val currentLat = currentLocationStr.substringBefore(",").toDouble()
+
+                Location.distanceBetween(
+                        currentLat,
+                        currentLng,
+                        this@MapsActivity.markedPosition!!.latitude,
+                        this@MapsActivity.markedPosition!!.longitude,
                         //45.421300,
                         //-71.962980,
                         resultArray

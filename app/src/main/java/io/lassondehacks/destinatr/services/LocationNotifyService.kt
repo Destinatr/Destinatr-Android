@@ -82,7 +82,6 @@ class LocationNotifyService : Service(), LocationListener, GoogleApiClient.Conne
     }
 
     override fun onLocationChanged(location: Location?) {
-        println("Changed location!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         val i = Intent("io.lassondehacks.destinatr.intent.action.NotifyUpdate")
         i.putExtra("CURRENT_LOCATION", "${location?.latitude},${location?.longitude}")
         sendBroadcast(i)
