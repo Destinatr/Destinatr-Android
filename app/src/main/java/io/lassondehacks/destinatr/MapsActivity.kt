@@ -55,6 +55,7 @@ import io.lassondehacks.destinatr.services.ParkingService
 import io.lassondehacks.destinatr.utils.LocationUtilities
 import io.lassondehacks.destinatr.utils.ParkingClusterRenderer
 import io.lassondehacks.destinatr.utils.PointClusterItem
+import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
 import java.util.*
 
 class MapsActivity : FragmentActivity(),
@@ -346,6 +347,21 @@ class MapsActivity : FragmentActivity(),
             editor.apply()
         }
 
+        (alert.findViewById(R.id.seek_bar) as DiscreteSeekBar).progress = prefs.getInt(R.id.seek_bar.toString(), 0)
+        (alert.findViewById(R.id.seek_bar) as DiscreteSeekBar).setOnProgressChangeListener(object: DiscreteSeekBar.OnProgressChangeListener {
+            override fun onProgressChanged(seekBar: DiscreteSeekBar?, value: Int, fromUser: Boolean) {
+                editor.putInt(R.id.seek_bar.toString(), value)
+                editor.apply()
+            }
+
+            override fun onStartTrackingTouch(seekBar: DiscreteSeekBar?) {
+            }
+
+            override fun onStopTrackingTouch(seekBar: DiscreteSeekBar?) {
+            }
+
+        })
+
     }
 
     fun onResultSelection(result: Result) {
@@ -398,7 +414,7 @@ class MapsActivity : FragmentActivity(),
         polylineToPark = mMap!!.addPolyline(rectLine)
 
 
-        if(directions.size > 1) {
+        if (directions.size > 1) {
 
             val dirParkToEnd = directions[1]
 

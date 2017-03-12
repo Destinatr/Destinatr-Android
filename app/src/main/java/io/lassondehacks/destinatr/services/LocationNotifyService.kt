@@ -45,11 +45,11 @@ class LocationNotifyService : Service(), LocationListener, GoogleApiClient.Conne
         }
     }
 
-    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         return super.onStartCommand(intent, flags, startId)
     }
 
-    override fun onBind(intent: Intent): IBinder? {
+    override fun onBind(intent: Intent?): IBinder? {
         return null
     }
 

@@ -43,8 +43,7 @@ class ParkingService {
                             restrictionObj!!.string("code")!!,
                             restrictionObj.boolean("toujours"),
                             restrictionObj.array<String>("journee")!!.toTypedArray(),
-                            restrictionObj.array<String>("moisDebut")!!.toTypedArray(),
-                            restrictionObj.array<String>("moisFin")!!.toTypedArray(),
+                            restrictionObj.array<Int>("mois")!!.toTypedArray(),
                             restrictionObj.array<String>("heureDebut")!!.toTypedArray(),
                             restrictionObj.array<String>("heureFin")!!.toTypedArray()
                     )
@@ -70,10 +69,10 @@ class ParkingService {
                             if(parkingJson != null) {
                                 val latitude = parkingJson!!.obj("position")!!.array<Double>("coordinates")!![1]
                                 val longitude = parkingJson.obj("position")!!.array<Double>("coordinates")!![0]
-                                val rating = parkingJson.int("rating")!!
-                                cb(null, Parking(LatLng(latitude, longitude), null, rating.toFloat()))
+                                val rating = parkingJson.int("rating")
+                                cb(null, Parking(LatLng(latitude, longitude), null, rating?.toFloat() ?: 0.0f, true, null))
                             } else {
-                                cb(null, Parking(LatLng(0.0, 0.0), null, 0f))
+                                cb(null, Parking(LatLng(0.0, 0.0), null, 0f, null, null))
                             }
                         }, { err ->
                             cb(err.message, null)

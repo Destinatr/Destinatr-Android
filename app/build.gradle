@@ -41,6 +41,7 @@ dependencies {
     compile 'com.android.support:cardview-v7:25.2.0'
     compile 'com.beust:klaxon:0.31'
     compile 'com.google.maps.android:android-maps-utils:0.4+'
+    compile 'org.adw.library:discrete-seekbar:1.0.1'
 }
 repositories {
     mavenCentral()
