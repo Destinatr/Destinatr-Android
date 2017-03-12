@@ -1,5 +1,6 @@
 package io.lassondehacks.destinatr.services
 
+import android.content.Context
 import com.beust.klaxon.*
 import com.github.kittinunf.fuel.httpGet
 import com.google.android.gms.maps.model.LatLng
@@ -20,8 +21,8 @@ class DirectionService(val onDataRegister: (directions: Array<DirectionInfo>) ->
     val directionApiBaseUrlXml = "https://maps.googleapis.com/maps/api/directions/xml?"
     val key = "AIzaSyA2VPQnLUTxLowZhRhk-bwpj-zXTtD3H3U" // make Kotlin work again
 
-    fun getDirectionInfo(from: LatLng, to: LatLng) {
-        ParkingService.getPrediction(to, 300, { err, parking ->
+    fun getDirectionInfo(from: LatLng, to: LatLng, maxParkingRange: Int) {
+        ParkingService.getPrediction(to, maxParkingRange, { err, parking ->
             if((parking!!.position.latitude != 0.0) && (parking.position.longitude != 0.0))
             {
                 "${directionApiBaseUrlJson}origin=${from.latitude},${from.longitude}&destination=${parking!!.position.latitude},${parking!!.position.longitude}&units=metric&mode=driving&key=${key}".httpGet().responseString { request, response, result ->

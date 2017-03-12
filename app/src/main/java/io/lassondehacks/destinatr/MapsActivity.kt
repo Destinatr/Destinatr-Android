@@ -372,7 +372,10 @@ class MapsActivity : FragmentActivity(),
             marker!!.remove()
         }
 
-        ds.getDirectionInfo(LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude), LatLng(result.latitude!!, result.longitude!!))
+        val prefs = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+        val range = prefs.getInt(R.id.seek_bar.toString(), 0)
+
+        ds.getDirectionInfo(LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude), LatLng(result.latitude!!, result.longitude!!), range)
 
         placeInfoFragment.setInfo(result)
 
