@@ -31,7 +31,8 @@
                 android:name=".MapsActivity"
                 android:label="@string/title_activity_maps"
                 android:screenOrientation="portrait"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan">
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan"
+                android:launchMode="singleTask">
         </activity>
 
         <service
