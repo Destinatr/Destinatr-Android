@@ -69,7 +69,7 @@ class MapsActivity : FragmentActivity(),
     var receiver: LocationReceiver? = null
     var markedPosition: Result? = null
     var notificationPushed: Boolean = false
-    var sharedPref : SharedPreferences? = null
+    var sharedPref: SharedPreferences? = null
 
     var marker: Marker? = null
     var polyline: Polyline? = null
@@ -91,18 +91,16 @@ class MapsActivity : FragmentActivity(),
 
         startService(Intent(this, LocationNotifyService::class.java))
 
-        if(sharedPref == null){
+        if (sharedPref == null) {
             sharedPref = getSharedPreferences("rating_pref", Context.MODE_PRIVATE)
             val editor = sharedPref!!.edit()
             editor.putBoolean("location_not_rated", false)
             editor.apply()
         }
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
         search_bar.setOnTouchListener { v, event ->
             val DRAWABLE_LEFT = 0
             val DRAWABLE_TOP = 1
@@ -129,7 +127,7 @@ class MapsActivity : FragmentActivity(),
         var filter = IntentFilter()
         filter.addAction(POSITION_UPDATE)
 
-        if(receiver == null) {
+        if (receiver == null) {
             receiver = LocationReceiver()
             registerReceiver(receiver, filter)
         }
@@ -143,11 +141,11 @@ class MapsActivity : FragmentActivity(),
         super.onDestroy()
     }
 
-    override fun onResume(){
+    override fun onResume() {
         super.onResume()
 
-        if(sharedPref != null) {
-            if(sharedPref!!.getBoolean("location_not_rated", false)) {
+        if (sharedPref != null) {
+            if (sharedPref!!.getBoolean("location_not_rated", false)) {
                 showRatingDialog()
                 val editor = sharedPref!!.edit()
                 editor.putBoolean("location_not_rated", false)
@@ -189,6 +187,8 @@ class MapsActivity : FragmentActivity(),
     fun setupMap() {
         mMap!!.isMyLocationEnabled = true
         mMap!!.setPadding(0, 250, 0, 0)
+
+        splash.visibility = View.INVISIBLE
     }
 
     override fun onStart() {
@@ -231,7 +231,7 @@ class MapsActivity : FragmentActivity(),
                             mMap!!.projection.visibleRegion.latLngBounds.northeast.longitude, distanceResult)
                     distanceResult[0] = Math.max(0.0f, Math.min(30000.0f, distanceResult[0] / 2))
 //                    var thread = Thread {
-                        beginFetchParking(mMap!!.cameraPosition.target, distanceResult[0].toInt())
+                    beginFetchParking(mMap!!.cameraPosition.target, distanceResult[0].toInt())
 //                    }
 //                    thread.start()
                 }
@@ -341,7 +341,8 @@ class MapsActivity : FragmentActivity(),
         ds.getDirectionInfo(LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude), LatLng(result.latitude!!, result.longitude!!))
 
         placeInfoFragment.setInfo(result, {
-            r -> switchToGoogleNavigation(r)
+            r ->
+            switchToGoogleNavigation(r)
         })
 
         infoCardContainer.visibility = View.VISIBLE
@@ -402,7 +403,7 @@ class MapsActivity : FragmentActivity(),
     }
 
     fun beginFetchParking(pos: LatLng, radius: Int) {
-        var page = 1
+        var page = 0
         clearParkings()
         fetchParkings(pos, radius, page)
     }
@@ -411,7 +412,7 @@ class MapsActivity : FragmentActivity(),
         ParkingService.getParkingsAtLocationAtPage(pos, radius, page, { err, parkings, remaining ->
             if (err == null && parkings != null) {
                 addParkings(parkings)
-                if (remaining != 0 && remaining != 1) {
+                if (remaining != 0) {
                     fetchParkings(pos, radius, page + 1)
                 }
             } else {
@@ -440,7 +441,7 @@ class MapsActivity : FragmentActivity(),
 
     fun createRatingNotification() {
 
-        if(!notificationPushed) {
+        if (!notificationPushed) {
             val mBuilder = NotificationCompat.Builder(this)
                     .setSmallIcon(R.drawable.ic_directions_car_black_24dp)
                     .setContentTitle("DestinatR - Your are at your destination!")
@@ -468,34 +469,34 @@ class MapsActivity : FragmentActivity(),
 
     }
 
-    inner class LocationReceiver: BroadcastReceiver() {
+    inner class LocationReceiver : BroadcastReceiver() {
 
-            override fun onReceive(context: Context, intent: Intent) {
-                if(this@MapsActivity.markedPosition != null) {
+        override fun onReceive(context: Context, intent: Intent) {
+            if (this@MapsActivity.markedPosition != null) {
 
-                    val resultArray = FloatArray(4)
-                    val currentLocationStr = intent.getStringExtra("CURRENT_LOCATION")
-                    val currentLng = currentLocationStr.substringAfter(",").toDouble()
-                    val currentLat = currentLocationStr.substringBefore(",").toDouble()
+                val resultArray = FloatArray(4)
+                val currentLocationStr = intent.getStringExtra("CURRENT_LOCATION")
+                val currentLng = currentLocationStr.substringAfter(",").toDouble()
+                val currentLat = currentLocationStr.substringBefore(",").toDouble()
 
-                    Location.distanceBetween(
-                            currentLat,
-                            currentLng,
-                            //this@MapsActivity.markedPosition!!.latitude!!,
-                            //this@MapsActivity.markedPosition!!.longitude!!,
-                            45.421300,
-                            -71.962980,
-                            resultArray
-                    )
-                    //if(resultArray[0] <= 20.0f) {
-                        this@MapsActivity.createRatingNotification()
+                Location.distanceBetween(
+                        currentLat,
+                        currentLng,
+                        //this@MapsActivity.markedPosition!!.latitude!!,
+                        //this@MapsActivity.markedPosition!!.longitude!!,
+                        45.421300,
+                        -71.962980,
+                        resultArray
+                )
+                //if(resultArray[0] <= 20.0f) {
+                this@MapsActivity.createRatingNotification()
 
-                        val editor = sharedPref!!.edit()
-                        editor.putBoolean("location_not_rated", true)
-                        editor.commit()
-                    //}
-                }
+                val editor = sharedPref!!.edit()
+                editor.putBoolean("location_not_rated", true)
+                editor.commit()
+                //}
             }
-
         }
+
+    }
 }
