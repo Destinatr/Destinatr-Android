@@ -13,14 +13,14 @@ class ParkingService {
     companion object {
         val API_URL = "http://159.203.14.223:8080"
 
-        fun getParkingsAtLocationAtPage(location: LatLng, radius: Int, page: Int): Triple<String?, List<Parking>?, Int?> {
+        fun getParkingsAtLocationAtPage(location: LatLng, radius: Int, page: Int, freeFilter: Boolean = true, payingFilter: Boolean = true): Triple<String?, List<Parking>?, Int?> {
             var (request, response, result) = "$API_URL/parking/near/${location.longitude}/${location.latitude}/$radius/$page/100"
                     .httpGet().timeout(60000).timeoutRead(60000).responseString()
             result.fold({ d ->
                 val parser: com.beust.klaxon.Parser = com.beust.klaxon.Parser()
                 val stringBuilder: StringBuilder = StringBuilder(d)
                 val json: JsonObject = parser.parse(stringBuilder) as JsonObject
-                var parkings = getParkingList(json.array<JsonObject>("parkings")!!)
+                var parkings = getParkingList(json.array<JsonObject>("parkings")!!, freeFilter, payingFilter)
                 return Triple(null, parkings, json.int("remainingPages"))
             }, { err ->
                 return Triple(err.message, null, null)
@@ -28,7 +28,7 @@ class ParkingService {
 
         }
 
-        fun getParkingList(array: JsonArray<JsonObject>): List<Parking> {
+        fun getParkingList(array: JsonArray<JsonObject>, freeFilter: Boolean = true, payingFilter: Boolean = true): List<Parking> {
             var arrayList = arrayListOf<Parking>()
             for (obj in array) {
                 var position = LatLng(
@@ -49,7 +49,10 @@ class ParkingService {
                             restrictionObj.array<String>("heureFin")!!.toTypedArray()
                     )
                 }
-                var parking = Parking(position, restrictions, rating!!.toFloat())
+                var free = obj.boolean("free")
+                var parking = Parking(position, restrictions, rating?.toFloat() ?: 0.0f, free, null)
+                if(!freeFilter && parking.free!! || !payingFilter && !parking.free!!)
+                    continue
                 arrayList.add(parking)
             }
             return arrayList
