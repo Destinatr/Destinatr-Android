@@ -11,13 +11,9 @@ import android.support.v4.app.ActivityCompat
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GooglePlayServicesUtil
 import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.common.api.PendingResult
-import com.google.android.gms.common.api.Status
 import com.google.android.gms.location.LocationListener
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
-
-import java.sql.DriverManager.println
 
 class LocationNotifyService : Service(), LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
@@ -31,10 +27,10 @@ class LocationNotifyService : Service(), LocationListener, GoogleApiClient.Conne
         //show error dialog if GoolglePlayServices not available
         if (isGooglePlayServicesAvailable) {
             mLocationRequest = LocationRequest()
-            mLocationRequest!!.interval = 100
-            mLocationRequest!!.fastestInterval = 50
-            mLocationRequest!!.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
-            mLocationRequest!!.smallestDisplacement = 1.0f
+            mLocationRequest!!.fastestInterval = 10
+            mLocationRequest!!.interval = 50
+            mLocationRequest!!.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+            //mLocationRequest!!.smallestDisplacement = 1.0f
             mGoogleApiClient = GoogleApiClient.Builder(this)
                     .addApi(LocationServices.API)
                     .addConnectionCallbacks(this)

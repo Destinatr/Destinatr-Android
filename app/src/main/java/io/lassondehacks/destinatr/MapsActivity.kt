@@ -86,7 +86,9 @@ class MapsActivity : FragmentActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
-        startService(Intent(this, LocationNotifyService::class.java))
+        var locationIntent = Intent(this, LocationNotifyService::class.java)
+        locationIntent.flags = (Intent.FLAG_FROM_BACKGROUND)
+        startService(locationIntent)
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -520,7 +522,7 @@ class MapsActivity : FragmentActivity(),
         }
     }
 
-    inner class LocationReceiver : BroadcastReceiver(), LocationListener {
+    inner class LocationReceiver : BroadcastReceiver() {
 
         override fun onReceive(context: Context, intent: Intent) {
             if (this@MapsActivity.markedPosition != null) {
@@ -539,34 +541,10 @@ class MapsActivity : FragmentActivity(),
                         //-71.962980,
                         resultArray
                 )
-                if (resultArray[0] <= 20.0f) {
+                if (resultArray[0] <= 50.0f) {
                     this@MapsActivity.createRatingNotification()
                 }
             }
         }
-
-        override fun onLocationChanged(location: Location?) {
-            if (this@MapsActivity.markedPosition != null) {
-
-                val resultArray = FloatArray(4)
-                val currentLocationStr = intent.getStringExtra("CURRENT_LOCATION")
-                val currentLng = currentLocationStr.substringAfter(",").toDouble()
-                val currentLat = currentLocationStr.substringBefore(",").toDouble()
-
-                Location.distanceBetween(
-                        currentLat,
-                        currentLng,
-                        this@MapsActivity.markedPosition!!.latitude,
-                        this@MapsActivity.markedPosition!!.longitude,
-                        //45.421300,
-                        //-71.962980,
-                        resultArray
-                )
-                if (resultArray[0] <= 20.0f) {
-                    this@MapsActivity.createRatingNotification()
-                }
-            }
-        }
-
     }
 }

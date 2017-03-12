@@ -70,10 +70,11 @@ class ParkingService {
                             if(parkingJson != null) {
                                 val latitude = parkingJson!!.obj("position")!!.array<Double>("coordinates")!![1]
                                 val longitude = parkingJson.obj("position")!!.array<Double>("coordinates")!![0]
-                                val rating = parkingJson.int("rating")!!
-                                cb(null, Parking(LatLng(latitude, longitude), null, rating.toFloat()))
+                                val rating = parkingJson.int("rating")
+                                var free = parkingJson.boolean("free")
+                                cb(null, Parking(LatLng(latitude, longitude), null, rating?.toFloat() ?: 0.0f, free, null))
                             } else {
-                                cb(null, Parking(LatLng(0.0, 0.0), null, 0f))
+                                cb(null, Parking(LatLng(0.0, 0.0), null, 0f, false, null))
                             }
                         }, { err ->
                             cb(err.message, null)
