@@ -32,6 +32,9 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.places.Places
 import com.google.android.gms.maps.model.*
 import com.google.maps.android.clustering.ClusterManager
+import com.google.maps.android.heatmaps.Gradient
+import com.google.maps.android.heatmaps.HeatmapTileProvider
+import com.google.maps.android.heatmaps.WeightedLatLng
 import io.lassondehacks.destinatr.domain.DirectionInfo
 import io.lassondehacks.destinatr.domain.Parking
 import io.lassondehacks.destinatr.domain.Result
@@ -39,6 +42,7 @@ import io.lassondehacks.destinatr.fragments.PlaceInfoFragment
 import io.lassondehacks.destinatr.fragments.ResultListViewFragment
 import io.lassondehacks.destinatr.services.LocationNotifyService
 import io.lassondehacks.destinatr.services.DirectionService
+import io.lassondehacks.destinatr.services.HeatMapService
 import io.lassondehacks.destinatr.services.ParkingService
 import io.lassondehacks.destinatr.utils.LocationUtilities
 import io.lassondehacks.destinatr.utils.ParkingClusterRenderer
@@ -281,6 +285,9 @@ class MapsActivity : FragmentActivity(),
 
         })
 
+        HeatMapService.getWeightedLatLngArray(LatLng(0.0,0.0), 500, { r ->
+            onHeatMapData(r)
+        })
 
         mMap?.setOnMapClickListener {
             result_container.visibility = View.INVISIBLE
@@ -520,6 +527,27 @@ class MapsActivity : FragmentActivity(),
             notificationManager.notify(NOTIFICATION_ID, mBuilder.build())
             notificationPushed = true
         }
+    }
+
+    fun onHeatMapData(array: List<WeightedLatLng>) {
+
+        // Create the gradient.
+        val colors = intArrayOf(
+                Color.rgb(58, 164, 221),    // Accent
+                Color.rgb(102, 225, 0) // green
+        )
+
+        val startPoints = floatArrayOf(0.1f,1f)
+
+        val gradient = Gradient(colors, startPoints)
+
+        val mProvider = HeatmapTileProvider.Builder()
+                .weightedData(array)
+                .gradient(gradient)
+                .build()
+
+        val mOverlay = mMap!!.addTileOverlay(TileOverlayOptions().tileProvider(mProvider))
+
     }
 
     inner class LocationReceiver : BroadcastReceiver() {
