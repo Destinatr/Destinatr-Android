@@ -2,18 +2,11 @@ package io.lassondehacks.destinatr.services
 
 import com.beust.klaxon.*
 import com.github.kittinunf.fuel.httpGet
-import com.github.kittinunf.result.Result
-import com.github.kittinunf.result.getAs
 import com.google.android.gms.maps.model.LatLng
 import io.lassondehacks.destinatr.R
 import io.lassondehacks.destinatr.domain.DirectionInfo
-import org.w3c.dom.Document
-import org.w3c.dom.Node
+import io.lassondehacks.destinatr.domain.Parking
 import org.w3c.dom.NodeList
-import org.xml.sax.InputSource
-import java.io.ByteArrayInputStream
-import java.nio.charset.Charset
-import javax.xml.parsers.DocumentBuilderFactory
 
 
 /**
@@ -21,38 +14,82 @@ import javax.xml.parsers.DocumentBuilderFactory
  */
 
 
-class DirectionService(val onDataRegister: (directions: DirectionInfo) -> Unit) {
+class DirectionService(val onDataRegister: (directions: Array<DirectionInfo>) -> Unit) {
 
     val directionApiBaseUrlJson = "https://maps.googleapis.com/maps/api/directions/json?"
     val directionApiBaseUrlXml = "https://maps.googleapis.com/maps/api/directions/xml?"
     val key = "AIzaSyA2VPQnLUTxLowZhRhk-bwpj-zXTtD3H3U" // make Kotlin work again
 
     fun getDirectionInfo(from: LatLng, to: LatLng) {
+        ParkingService.getPrediction(to, 300, { err, parking ->
+            if((parking!!.position.latitude != 0.0) && (parking.position.longitude != 0.0))
+            {
+                "${directionApiBaseUrlJson}origin=${from.latitude},${from.longitude}&destination=${parking!!.position.latitude},${parking!!.position.longitude}&units=metric&mode=driving&key=${key}".httpGet().responseString { request, response, result ->
+                    result.fold({ d1 ->
+                        getAllDirections(from, to, parking, d1)
+                    }, { err ->
 
-        "${directionApiBaseUrlJson}origin=${from.latitude},${from.longitude}&destination=${to.latitude},${to.longitude}&units=metric&mode=driving&key=${key}".httpGet().responseString { request, response, result ->
-            result.fold({ d ->
-                val parser: Parser = Parser()
-                val stringBuilder: StringBuilder = StringBuilder(d)
-                val json: JsonObject = parser.parse(stringBuilder) as JsonObject
-                this.onDataRegister(getAllInfo(json))
-            }, { err ->
+                    })
+                }
+            } else {
+                "${directionApiBaseUrlJson}origin=${from.latitude},${from.longitude}&destination=${to.latitude},${to.longitude}&units=metric&mode=driving&key=${key}".httpGet().responseString { request, response, result ->
+                    result.fold({ d1 ->
+                        getAllDirections(from, to, parking, d1)
+                    }, { err ->
 
-            })
+                    })
+                }
+            }
+        })
+    }
 
+    fun getAllDirections(from: LatLng, to: LatLng, parking: Parking, d1: String) {
+        if((parking!!.position.latitude != 0.0) && (parking.position.longitude != 0.0))
+        {
+            "${directionApiBaseUrlJson}origin=${parking!!.position.latitude},${parking!!.position.longitude}&destination=${to.latitude},${to.longitude}&units=metric&mode=walking&key=${key}".httpGet().responseString { request, response, result ->
+                result.fold({ d2 ->
+                    val parser: Parser = Parser()
+                    val sBd1: StringBuilder = StringBuilder(d1)
+                    val jsond1: JsonObject = parser.parse(sBd1) as JsonObject
+                    val sBd2: StringBuilder = StringBuilder(d2)
+                    val jsond2: JsonObject = parser.parse(sBd2) as JsonObject
+                    this.onDataRegister(getAllInfo(jsond1, jsond2))
+                }, { err ->
+
+                })
+            }
+        } else {
+            val parser: Parser = Parser()
+            val sBd1: StringBuilder = StringBuilder(d1)
+            val json: JsonObject = parser.parse(sBd1) as JsonObject
+            this.onDataRegister(getAllInfo(json, null))
         }
     }
 
-    fun getAllInfo(json: JsonObject): DirectionInfo {
-        var info = DirectionInfo()
-        info.durationText = getDurationText(json)
-        info.durationVal = getDurationValue(json)
-        info.distanceText = getDistanceText(json)
-        info.distanceVal = getDistanceValue(json)
-        info.fromAddr = getStartAddress(json)
-        info.toAddr = getEndAddress(json)
-        info.directions = getDirection(json)
+    fun getAllInfo(jsonSTP: JsonObject, jsonPTE: JsonObject?): Array<DirectionInfo> {
+        val infoStartToPark = DirectionInfo(
+            getDurationText(jsonSTP),
+            getDurationValue(jsonSTP),
+            getDistanceText(jsonSTP),
+            getDistanceValue(jsonSTP),
+            getStartAddress(jsonSTP),
+            getEndAddress(jsonSTP),
+            getDirection(jsonSTP))
 
-        return info
+        if(jsonPTE != null) {
+            val infoParkToEnd = DirectionInfo(
+                    getDurationText(jsonPTE),
+                    getDurationValue(jsonPTE),
+                    getDistanceText(jsonPTE),
+                    getDistanceValue(jsonPTE),
+                    getStartAddress(jsonPTE),
+                    getEndAddress(jsonPTE),
+                    getDirection(jsonPTE))
+
+            return arrayOf(infoStartToPark, infoParkToEnd)
+        }
+
+        return arrayOf(infoStartToPark)
     }
 
     fun getDurationText(json: JsonObject): String {

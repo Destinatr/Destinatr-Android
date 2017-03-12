@@ -1,6 +1,7 @@
 package io.lassondehacks.destinatr.fragments
 
 import android.content.Context
+import android.location.Location
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.google.android.gms.maps.model.LatLng
 import io.lassondehacks.destinatr.domain.Result
 
 import io.lassondehacks.destinatr.R
@@ -29,11 +31,14 @@ class PlaceInfoFragment : Fragment() {
     }
 
 
-    fun setInfo(result: Result, onClickStartRoute: (result: Result) -> Unit) {
+    fun setInfo(result: Result) {
         (view?.findViewById(R.id.titleText) as TextView).text = result.title
         (view?.findViewById(R.id.addressText) as TextView).text = result.address
+    }
+
+    fun setcb(location: LatLng, onClickStartRoute: (location: LatLng) -> Unit) {
         (view?.findViewById(R.id.startRouteButton) as FloatingActionButton).setOnClickListener {
-            onClickStartRoute(result)
+            onClickStartRoute(location)
         }
     }
 

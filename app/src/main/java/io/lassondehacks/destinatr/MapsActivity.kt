@@ -69,11 +69,13 @@ class MapsActivity : FragmentActivity(),
 
     val POSITION_UPDATE = "io.lassondehacks.destinatr.intent.action.NotifyUpdate"
     var receiver: LocationReceiver? = null
-    var markedPosition: Result? = null
+    var markedPosition: LatLng? = null
+    var markedPositionForDestinationWalk: LatLng? = null
     var notificationPushed: Boolean = false
 
     var marker: Marker? = null
-    var polyline: Polyline? = null
+    var polylineToPark: Polyline? = null
+    var polylineToEnd: Polyline? = null
 
     var googleApiClient: GoogleApiClient? = null
     var mLastLocation: Location? = null
@@ -158,8 +160,11 @@ class MapsActivity : FragmentActivity(),
                 .show()
 
         (dialog.findViewById(R.id.ratingBar) as RatingBar).setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            println(rating)
+            println(rating) //TODO send value to server
             dialog.cancel()
+            if (markedPositionForDestinationWalk != null) {
+                switchToGoogleNavigationWalk(markedPositionForDestinationWalk!!)
+            }
         }
     }
 
@@ -356,10 +361,7 @@ class MapsActivity : FragmentActivity(),
 
         ds.getDirectionInfo(LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude), LatLng(result.latitude!!, result.longitude!!))
 
-        placeInfoFragment.setInfo(result, {
-            r ->
-            switchToGoogleNavigation(r)
-        })
+        placeInfoFragment.setInfo(result)
 
         infoCardContainer.visibility = View.VISIBLE
         result_container.visibility = View.INVISIBLE
@@ -375,20 +377,46 @@ class MapsActivity : FragmentActivity(),
         }
     }
 
-    fun onDirectionData(directions: DirectionInfo) {
+    fun onDirectionData(directions: Array<DirectionInfo>) {
 
-        println(directions)
+        val dirStartToPark = directions[0]
 
-        placeInfoFragment.setDuration(directions.durationText)
-        if (polyline != null) {
-            polyline!!.remove()
+        placeInfoFragment.setcb(dirStartToPark.directions!!.last(), {
+            r ->
+            switchToGoogleNavigationDrive(r)
+        })
+
+        placeInfoFragment.setDuration(dirStartToPark.durationText)
+        if (polylineToPark != null) {
+            polylineToPark!!.remove()
         }
-        var rectLine = PolylineOptions().width(20f).color(Color.argb(180, 33, 150, 243))
+        var rectLine = PolylineOptions().width(20f).color(Color.argb(200, 58, 164, 221))
 
-        for (i in 0..directions.directions!!.count() - 1) {
-            rectLine.add(directions.directions!![i])
+        for (i in 0..dirStartToPark.directions!!.count() - 1) {
+            rectLine.add(dirStartToPark.directions!![i])
         }
-        polyline = mMap!!.addPolyline(rectLine)
+        polylineToPark = mMap!!.addPolyline(rectLine)
+
+
+        if(directions.size > 1) {
+
+            val dirParkToEnd = directions[1]
+
+            markedPositionForDestinationWalk = dirParkToEnd.directions!!.last()
+
+            //Parking to end
+
+            if (polylineToEnd != null) {
+                polylineToEnd!!.remove()
+            }
+            var rectLine2 = PolylineOptions().width(20f).color(Color.argb(200, 241, 90, 43))
+
+            for (i in 0..dirParkToEnd.directions!!.count() - 1) {
+                rectLine2.add(dirParkToEnd.directions!![i])
+            }
+            polylineToEnd = mMap!!.addPolyline(rectLine2)
+
+        }
     }
 
     override fun onBackPressed() {
@@ -462,11 +490,19 @@ class MapsActivity : FragmentActivity(),
 //        mMap!!.clear()
     }
 
-    fun switchToGoogleNavigation(result: Result) {
-        val gmmIntentUri = Uri.parse("google.navigation:q=${result.latitude},${result.longitude}")
+    fun switchToGoogleNavigationDrive(location: LatLng) {
+        val gmmIntentUri = Uri.parse("google.navigation:q=${location.latitude},${location.longitude}&mode=d")
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
         mapIntent.`package` = "com.google.android.apps.maps"
-        markedPosition = result
+        markedPosition = location
+        startActivity(mapIntent)
+    }
+
+    fun switchToGoogleNavigationWalk(location: LatLng) {
+        val gmmIntentUri = Uri.parse("google.navigation:q=${location.latitude},${location.longitude}&mode=w")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.`package` = "com.google.android.apps.maps"
+        markedPosition = location
         startActivity(mapIntent)
     }
 
@@ -480,7 +516,7 @@ class MapsActivity : FragmentActivity(),
 
             val mBuilder = NotificationCompat.Builder(this)
                     .setSmallIcon(R.drawable.ic_directions_car_black_24dp)
-                    .setContentTitle("DestinatR - Your are at your destination!")
+                    .setContentTitle("DestinatR - You are at your destination!")
                     .setContentText("Please rate your parking to help us improve our app")
                     .setVibrate(longArrayOf(100, 250, 100, 250, 100, 250))
                     .setLights(Color.RED, 3000, 3000)
