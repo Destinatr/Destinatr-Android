@@ -55,5 +55,28 @@ class ParkingService {
             }
             return arrayList
         }
+
+        fun getPrediction(location: LatLng, radius: Int, cb: (err: String?, Parking?) -> Unit) {
+            "$API_URL/parking/nearest/${location.longitude}/${location.latitude}/$radius/"
+                    .httpGet().timeout(60000).timeoutRead(60000)
+                    .responseString { request, response, result ->
+                        result.fold({ d ->
+                            val parser: com.beust.klaxon.Parser = com.beust.klaxon.Parser()
+                            val stringBuilder: StringBuilder = StringBuilder(d)
+                            val json: JsonObject = parser.parse(stringBuilder) as JsonObject
+                            val parkingJson = json.obj("parkings")
+                            if(parkingJson != null) {
+                                val latitude = parkingJson!!.obj("position")!!.array<Double>("coordinates")!![1]
+                                val longitude = parkingJson.obj("position")!!.array<Double>("coordinates")!![0]
+                                val rating = parkingJson.int("rating")!!
+                                cb(null, Parking(LatLng(latitude, longitude), null, rating.toFloat()))
+                            } else {
+                                cb(null, Parking(LatLng(0.0, 0.0), null, 0f))
+                            }
+                        }, { err ->
+                            cb(err.message, null)
+                        })
+                    }
+        }
     }
 }

@@ -70,7 +70,8 @@ class MapsActivity : FragmentActivity(),
     var notificationPushed: Boolean = false
 
     var marker: Marker? = null
-    var polyline: Polyline? = null
+    var polylineToPark: Polyline? = null
+    var polylineToEnd: Polyline? = null
 
     var googleApiClient: GoogleApiClient? = null
     var mLastLocation: Location? = null
@@ -344,20 +345,39 @@ class MapsActivity : FragmentActivity(),
         }
     }
 
-    fun onDirectionData(directions: DirectionInfo) {
+    fun onDirectionData(directions: Array<DirectionInfo>) {
 
-        println(directions)
+        val dirStartToPark = directions[0]
 
-        placeInfoFragment.setDuration(directions.durationText)
-        if (polyline != null) {
-            polyline!!.remove()
+        placeInfoFragment.setDuration(dirStartToPark.durationText)
+        if (polylineToPark != null) {
+            polylineToPark!!.remove()
         }
-        var rectLine = PolylineOptions().width(20f).color(Color.argb(180, 33, 150, 243))
+        var rectLine = PolylineOptions().width(20f).color(Color.argb(200, 58, 164, 221))
 
-        for (i in 0..directions.directions!!.count() - 1) {
-            rectLine.add(directions.directions!![i])
+        for (i in 0..dirStartToPark.directions!!.count() - 1) {
+            rectLine.add(dirStartToPark.directions!![i])
         }
-        polyline = mMap!!.addPolyline(rectLine)
+        polylineToPark = mMap!!.addPolyline(rectLine)
+
+
+        if(directions.size > 1) {
+
+            val dirParkToEnd = directions[1]
+
+            //Parking to end
+
+            if (polylineToEnd != null) {
+                polylineToEnd!!.remove()
+            }
+            var rectLine2 = PolylineOptions().width(20f).color(Color.argb(200, 241, 90, 43))
+
+            for (i in 0..dirParkToEnd.directions!!.count() - 1) {
+                rectLine2.add(dirParkToEnd.directions!![i])
+            }
+            polylineToEnd = mMap!!.addPolyline(rectLine2)
+
+        }
     }
 
     override fun onBackPressed() {
