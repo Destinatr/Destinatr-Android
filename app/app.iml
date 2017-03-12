@@ -195,6 +195,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/10.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/10.2.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.4.4/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-runtime-classes" />
@@ -272,6 +273,7 @@
     <orderEntry type="library" exported="" name="firebase-storage-common-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-ads-lite-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-iid-10.2.0" level="project" />
+    <orderEntry type="library" exported="" name="android-maps-utils-0.4.4" level="project" />
     <orderEntry type="library" exported="" name="firebase-database-connection-10.2.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="jsr305-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-vision-10.2.0" level="project" />
